@@ -5,7 +5,7 @@
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-  padding: 6rem 2rem 2rem; /* pushes hero downward */
+  padding: 4.5rem 2rem 2rem; /* pushes hero downward */
 }
  
 .hero h1 {
@@ -14,7 +14,7 @@
   margin-bottom: 1rem;
  font-family: 'Archivo', sans-serif;
  font-weight: 10;
-  margin-right: 30%;
+ 
   margin-top: 2rem; /* replaced -10rem with +2rem */
 }
 
@@ -23,20 +23,20 @@
   color: #B6EADA;
   margin-bottom: 1rem;
   font-family: 'Bebas Neue', sans-serif;
-  margin-left: 50%;
+  margin-left: 33%;
 }
 
 .spn {
   font-weight: 200;
-   font-family: "Bungee Outline", sans-serif;
-   font-size: 7rem;
+  font-family: "Bungee Shade", sans-serif;
+   font-size: 5rem;
 }
 
 .spn-2{
  color: #007bff;
  text-shadow: 0 10px 30px rgba(182, 234, 218, 0.3);;
- font-family: "Bungee Outline", sans-serif;
-font-size: 7rem;
+ font-family: "Bungee Shade", sans-serif;
+font-size: 5rem;
 }
 
 .frontend{
@@ -50,7 +50,7 @@ font-size: 7rem;
   justify-content: center;
   /* Keep original position intact */
   margin-top: -5.3rem; /* moves buttons up */
-  transform: translateX(-40%); /* moves buttons left */
+  transform: translateX(-70%); /* moves buttons left */
 }
 
 .btn-primary {

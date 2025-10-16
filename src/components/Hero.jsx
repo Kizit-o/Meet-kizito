@@ -2,6 +2,8 @@ import '../styles/Hero.css';
 import { FaArrowRight, FaEnvelope } from 'react-icons/fa';
 import "@fontsource/bebas-neue";
 import "@fontsource/bungee-outline";
+import "@fontsource/bungee-shade"; // Defaults to weight 400
+
 
 
 function Hero() {

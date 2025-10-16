@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/About.css";
 import MeImg from "../assets/MEE.jpg";
+import "@fontsource/bungee-shade";
 
 function About() {
   const imageRef = useRef(null);
@@ -55,7 +56,7 @@ function About() {
 
         {/* Right side: text */}
         <div className="about-right">
-          <h1>|About Me</h1>
+          <h1>About Me</h1>
           <p>
             I'm <strong>Kizito</strong>, a <strong>certified web developer</strong> with six years of <strong>self-directed</strong> learning.  
             I am <strong>creative</strong> with bringing ideas to life with responsive and user-friendly interfaces.  

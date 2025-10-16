@@ -1,10 +1,27 @@
-body{
-  background: radial-gradient(
-  circle at bottom center,
-  #B6EADA 0%,
-  #03001C 70%
-);
-
+body {
   font-family: 'Archivo', sans-serif;
+  background: radial-gradient(circle at bottom center, #B6EADA 10%, #03001C 90%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: softGlow 0.000001s ease-in-out infinite;
+  transition: background 9s ease-in-out;
 }
 
+/* 🌊 Smooth breathing glow animation */
+@keyframes softGlow {
+  0% {
+    background: radial-gradient(circle at bottom center, #B6EADA 10%, #03001C 80%);
+  }
+  25% {
+    background: radial-gradient(circle at bottom center, #C2F0E5 20%, #03001C 82%);
+  }
+  50% {
+    background: radial-gradient(circle at bottom center, #D1FFF7 25%, #03001C 85%);
+  }
+  75% {
+    background: radial-gradient(circle at bottom center, #C2F0E5 18%, #03001C 82%);
+  }
+  100% {
+    background: radial-gradient(circle at bottom center, #B6EADA 10%, #03001C 80%);
+  }
+}

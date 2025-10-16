@@ -49,10 +49,10 @@
 }
 
 .about-right h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1rem, 3vw, 3rem);
   margin-bottom: 1rem;
   color: #B6EADA;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bungee Shade", sans-serif;
 }
 
 .about-right p {
