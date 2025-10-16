@@ -1,5 +1,10 @@
 body{
-  background-color: #03001C;
+  background: radial-gradient(
+  circle at bottom center,
+  #B6EADA 0%,
+  #03001C 70%
+);
+
   font-family: 'Archivo', sans-serif;
 }
 
