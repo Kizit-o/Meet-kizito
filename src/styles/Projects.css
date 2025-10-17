@@ -1,13 +1,15 @@
 .projects{
-  width: 100%;
+  width: 90%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3rem;
-  max-width: 1200px;
+  width: 1320px;
+   max-width: 1320px;
   margin: 0 auto;
   flex-wrap: wrap;
+  background: #03001C;
 }
 
 h2{
