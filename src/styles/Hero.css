@@ -24,24 +24,26 @@
   margin-bottom: 1rem;
   font-family: 'Bebas Neue', sans-serif;
   margin-left: 33%;
+   text-shadow: 0 10px 30px rgb(0, 0, 0);;
 }
 
 .spn {
   font-weight: 200;
   font-family: "Bungee Shade", sans-serif;
-   font-size: 5rem;
+   font-size: 8rem;
+    text-shadow: 0 10px 10px rgb(0, 0, 0);;
 }
 
 .spn-2{
  color: #007bff;
- text-shadow: 0 10px 30px rgba(182, 234, 218, 0.3);;
+ text-shadow: 0 10px 10px rgb(0, 0, 0);;
  font-family: "Bungee Shade", sans-serif;
-font-size: 5rem;
+font-size: 8rem;
 }
 
 .frontend{
  color: #007bff;
- text-shadow: 0 10px 30px rgba(182, 234, 218, 0.3);;
+ text-shadow: 0 10px 10px rgb(0, 0, 0);;
 }
 
 .hero-buttons {

@@ -1,20 +1,4 @@
-// Skills.jsx
-import React, { useState, useEffect, useRef } from "react";
-import { Code, Palette, Cpu, Layers, GitBranch, Monitor, Sparkles, Box, FileText, Users } from "lucide-react";
-import "../styles/Skills.css";
-
-const skills = [
-  { name: "HTML", level: 95, icon: Code, color: "#E34F26" },
-  { name: "CSS", level: 90, icon: Palette, color: "#1572B6" },
-  { name: "JavaScript", level: 85, icon: Cpu, color: "#F7DF1E" },
-  { name: "React", level: 80, icon: Layers, color: "#61DAFB" },
-  { name: "Git & GitHub", level: 88, icon: GitBranch, color: "#F05032" },
-  { name: "Responsive Design", level: 92, icon: Monitor, color: "#B6EADA" },
-  { name: "AI Tools", level: 75, icon: Sparkles, color: "#9D4EDD" },
-  { name: "Blockchain", level: 60, icon: Box, color: "#F2A900" },
-];
-
-const SkillCard = ({ skill, index }) => {
+const SkillCard = ({ skill }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef(null);
@@ -23,81 +7,70 @@ const SkillCard = ({ skill, index }) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.2 }
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
+    if (cardRef.current) observer.observe(cardRef.current);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
     if (!isVisible) return;
 
     const duration = 2000;
-    const steps = 60;
-    const increment = skill.level / steps;
-    const stepDuration = duration / steps;
+    const start = performance.now();
 
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= skill.level) {
-        setCount(skill.level);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, stepDuration);
+    const animate = (time) => {
+      const progress = Math.min((time - start) / duration, 1);
+      const value = Math.floor(progress * skill.level);
+      setCount(value);
+      if (progress < 1) requestAnimationFrame(animate);
+    };
 
-    return () => clearInterval(timer);
+    requestAnimationFrame(animate);
   }, [isVisible, skill.level]);
 
+  // circle setup
+  const radius = 70;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (count / 100) * circumference;
+
   return (
-    <div 
-      ref={cardRef}
-      className="skill-card"
-    >
-      <div 
-        className="skill-icon-wrapper"
-        style={{ backgroundColor: `${skill.color}20` }}
-      >
-        <Icon 
-          size={80} 
-          color={skill.color}
-          strokeWidth={1.5}
-        />
+    <div ref={cardRef} className="skill-card">
+      <div className="skill-progress-wrapper">
+        <svg className="progress-ring" width="160" height="160">
+          <circle
+            className="progress-ring-bg"
+            stroke={`${skill.color}30`}
+            strokeWidth="10"
+            fill="transparent"
+            r={radius}
+            cx="80"
+            cy="80"
+          />
+          <circle
+            className="progress-ring-circle"
+            stroke={skill.color}
+            strokeWidth="10"
+            fill="transparent"
+            r={radius}
+            cx="80"
+            cy="80"
+            style={{
+              strokeDasharray: circumference,
+              strokeDashoffset: offset,
+              transition: "stroke-dashoffset 0.3s ease-out",
+            }}
+          />
+        </svg>
+        <div className="skill-icon-center">
+          <Icon size={60} color={skill.color} />
+          <span className="skill-percent">{count}%</span>
+        </div>
       </div>
       <h3 className="skill-name">{skill.name}</h3>
-      <div className="skill-level-display">
-        <span className="level-count">{count}</span>
-        <span className="level-max">/{skill.level}</span>
-      </div>
     </div>
   );
 };
-
-const Skills = () => {
-  return (
-    <section className="skills-section" id="skills">
-      <h2 className="skills-title">Tech Stack</h2>
-      <div className="skills-grid">
-        {skills.map((skill, index) => (
-          <SkillCard key={index} skill={skill} index={index} />
-        ))}
-      </div>
-    </section>
-  );
-};
-
-export default Skills;

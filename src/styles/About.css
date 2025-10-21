@@ -2,18 +2,18 @@
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
   overflow: hidden;
-   width: 1320px;
+  width: 1320px;
+  max-width: 1320px;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3rem;
-  max-width: 1320px;
   margin: 0 auto;
   flex-wrap: wrap;
   background: #03001C;
+  padding: 0; /* Prevent internal spacing */
 }
-
 
 .about-container {
   display: flex;
@@ -53,6 +53,12 @@
 .about-right {
   flex: 1;
   text-align: left;
+  border: 3px solid #B6EADA;
+   padding: 3.9rem 3rem 3.9rem; /* adds vertical and horizontal spacing */
+  box-sizing: border-box; 
+  height: 100%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .about-right h1 {
@@ -60,6 +66,7 @@
   margin-bottom: 1rem;
   color: #B6EADA;
   font-family: "Bungee Shade", sans-serif;
+  
 }
 
 .about-right p {
