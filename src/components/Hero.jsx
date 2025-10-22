@@ -3,13 +3,23 @@ import { FaArrowRight, FaEnvelope } from 'react-icons/fa';
 import "@fontsource/bebas-neue";
 import "@fontsource/bungee-outline";
 import "@fontsource/bungee-shade"; // Defaults to weight 400
-
+import { motion } from 'framer-motion';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 function Hero() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      once: true,
+      easing: 'ease-in-out',
+    });
+  }, []);
   return (
     <section id="hero" className="hero">
-      <h1><span class="spn">Meet</span> <span class="spn-2">Kizito</span></h1>
+      <h1 data-aos="fade-up"><span class="spn">Meet</span> <span class="spn-2">Kizito</span></h1>
       <p>| Building the web.<span class="frontend">Frontend</span></p>
 
       {/* Buttons under the paragraph */}
