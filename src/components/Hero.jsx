@@ -33,7 +33,7 @@ function Hero() {
       </div>
 
       {/* Example image from assets */}
-      <img src="/src/assets/hero-2.svg" alt="Hero Illustration" />
+      <img src="/src/assets/hero2.svg" alt="Hero Illustration" />
     </section>
   );
 }
