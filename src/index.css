@@ -4,8 +4,8 @@ body {
   font-family: 'Archivo', sans-serif;
   background: radial-gradient(
       circle at 50% 120%,       /* Glow positioned below the viewport center */
-      #d8ff6b 10%,               /* Soft red glow */
-      #138080 25%,              /* Blue/violet blend */
+      #0d5f5f 10%,               /* Soft red glow */
+      #0d5f5f 25%,              /* Blue/violet blend */
       #0f113a 50%,              /* Deep black blend toward top */
       #000000 100%
   );
