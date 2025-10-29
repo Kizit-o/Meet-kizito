@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import "@fontsource/allerta-stencil";
 import {
   FaHtml5,
   FaCss3Alt,

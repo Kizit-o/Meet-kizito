@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import "../styles/About.css";
 import MeImg from "../assets/MEE.jpg";
 import "@fontsource/bungee-shade";
+import "@fontsource/allerta-stencil";
+
 
 function About() {
   const imageRef = useRef(null);

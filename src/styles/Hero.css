@@ -12,7 +12,8 @@
   font-size: 9rem;
   color: #fff;
   margin-bottom: 1rem;
- font-family: 'Archivo', sans-serif;
+  font-family: 'Archivo', sans-serif; 
+ 
  font-weight: 10;
  
   margin-top: 2rem; /* replaced -10rem with +2rem */
@@ -29,7 +30,10 @@
 
 .spn {
   font-weight: 200;
-  font-family: "Bungee Shade", sans-serif;
+   font-family: 'Stencil';
+  src: url('/src/assets/fonts/Stencil.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
    font-size: 8rem;
     text-shadow: 0 10px 10px rgb(0, 0, 0);;
 }
@@ -37,7 +41,10 @@
 .spn-2{
  color: #007bff;
  text-shadow: 0 10px 10px rgb(0, 0, 0);;
- font-family: "Bungee Shade", sans-serif;
+  font-family: 'Stencil';
+  src: url('/src/assets/fonts/Stencil.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 font-size: 8rem;
 }
 
@@ -93,7 +100,7 @@ font-size: 8rem;
 }
 
 .hero img {
-  margin-top: -3rem;
+  margin-top: 4rem;
   max-width: 600px;
   width: 100%;
   height: auto;
@@ -102,15 +109,3 @@ font-size: 8rem;
   mix-blend-mode: lighten; /* or try 'screen' */
 }
 
-.hero-spline {
-  width: 100%;
-  max-width: 600px;
-  height: 500px;
-  margin: 2rem auto 0;
-}
-
-.hero-spline canvas {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 20px;
-}

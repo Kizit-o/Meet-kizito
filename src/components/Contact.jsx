@@ -1,4 +1,5 @@
 // import '../styles/Contact.css';
+import "@fontsource/allerta-stencil";
 
 function Contact() {
   return (

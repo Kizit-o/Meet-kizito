@@ -65,8 +65,8 @@
   font-size: clamp(1rem, 3vw, 3rem);
   margin-bottom: 1rem;
   color: #B6EADA;
-  font-family: "Bungee Shade", sans-serif;
-  
+  font-family: 'Stencil';
+  font-weight: 400;
 }
 
 .about-right p {

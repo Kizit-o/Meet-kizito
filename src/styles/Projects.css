@@ -6,7 +6,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 4rem 0;
 }
 
 .projects-container {
@@ -18,7 +19,8 @@
 .projects-title {
   font-size: clamp(1.9rem, 5vw, 3.5rem);
   text-align: center;
-  font-family: "Bungee Shade", sans-serif;
+  font-family: 'Stencil';
+  font-weight: 400;
   margin-bottom: 4rem;
   color: #b6eada;
 }
@@ -34,15 +36,19 @@
   border: 1px solid rgba(182, 234, 218, 0.1);
   border-radius: 20px;
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 20px rgba(182, 234, 218, 0.05);
+  cursor: pointer;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(182, 234, 218, 0.2);
-  border-color: rgba(182, 234, 218, 0.3);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3), 
+              0 0 60px rgba(182, 234, 218, 0.2), 
+              inset 0 0 30px rgba(182, 234, 218, 0.05);
+  border-color: rgba(0, 255, 255, 0.4);
 }
 
 .project-image-wrapper {
@@ -55,11 +61,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .project-content {
@@ -96,6 +102,12 @@
   padding: 0.3rem 0.8rem;
   font-size: 0.85rem;
   font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .tech-badge {
+  background: rgba(0, 255, 255, 0.15);
+  border-color: rgba(0, 255, 255, 0.3);
 }
 
 .project-links {
@@ -110,14 +122,105 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .project-links a:hover {
   color: #00ffff;
+  transform: translateX(3px);
+}
+
+/* Featured Card Styles */
+.featured-card {
+  background: rgba(182, 234, 218, 0.05);
+  border: 1px solid rgba(182, 234, 218, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: grid;
+  grid-template-columns: 45% 55%;
+  min-height: 400px;
+  margin-top: 2.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 20px rgba(182, 234, 218, 0.05);
+  cursor: pointer;
+}
+
+.featured-card:hover {
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 20px 50px rgba(0, 255, 255, 0.35), 
+              0 0 80px rgba(182, 234, 218, 0.25), 
+              inset 0 0 40px rgba(182, 234, 218, 0.05);
+  border-color: rgba(0, 255, 255, 0.5);
+}
+
+.featured-image-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featured-card:hover .featured-image {
+  transform: scale(1.08);
+}
+
+.featured-content {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: "Archivo", sans-serif;
+  color: #b6eada;
+}
+
+.featured-role {
+  font-size: 1.1rem;
+  color: #00ffff;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.featured-card:hover .tech-badge {
+  background: rgba(0, 255, 255, 0.15);
+  border-color: rgba(0, 255, 255, 0.3);
 }
 
 /* Responsive */
+@media (max-width: 968px) {
+  .featured-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .featured-image-wrapper {
+    height: 300px;
+  }
+
+  .featured-content {
+    padding: 2rem;
+  }
+
+  .featured-title {
+    font-size: 1.7rem;
+  }
+
+  .featured-role {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .projects {
     padding: 6rem 1rem;
@@ -133,5 +236,22 @@
 
   .project-description {
     font-size: 0.9rem;
+  }
+
+  .featured-image-wrapper {
+    height: 250px;
+  }
+
+  .featured-content {
+    padding: 1.8rem;
+  }
+
+  .featured-title {
+    font-size: 1.5rem;
+  }
+
+  .project-card:hover,
+  .featured-card:hover {
+    transform: translateY(-4px) scale(1.01);
   }
 }
