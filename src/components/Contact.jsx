@@ -1,12 +1,13 @@
-// import '../styles/Contact.css';
 import "@fontsource/allerta-stencil";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaGlobe } from "react-icons/fa";
+import "../styles/Contact.css";
 
 function Contact() {
   return (
     <section id="contact" className="contact">
-      <h2>Contact Me</h2>
+      <h2 data-aos="fade-up">Get In Touch</h2>
 
-      <form>
+      <form data-aos="fade-up" data-aos-delay="100">
         <div className="form-group">
           <input type="text" placeholder="Your Name" required />
         </div>
@@ -22,33 +23,45 @@ function Contact() {
         <button type="submit">Send Message</button>
       </form>
 
-      <div className="socials">
+      <div className="socials" data-aos="fade-up" data-aos-delay="200">
         <h2>Connect With Me</h2>
+        <p className="social-text">
+          Let’s collaborate, share ideas, or just chat about development and creativity!
+        </p>
         <div className="social-links">
-          <a
-            href="https://twitter.com/yourhandle"
-            target="_blank"
-            rel="noreferrer"
-            className="twitter"
-          >
-            <i className="fab fa-twitter"></i> Twitter
-          </a>
-
           <a
             href="https://github.com/yourhandle"
             target="_blank"
             rel="noreferrer"
             className="github"
           >
-            <i className="fab fa-github"></i> GitHub
+            <FaGithub /> GitHub
           </a>
 
           <a
-            href="mailto:youremail@example.com"
+            href="https://linkedin.com/in/yourhandle"
             target="_blank"
             rel="noreferrer"
+            className="linkedin"
           >
-            <i className="fas fa-envelope"></i> Email
+            <FaLinkedin /> LinkedIn
+          </a>
+
+          <a
+            href="https://twitter.com/yourhandle"
+            target="_blank"
+            rel="noreferrer"
+            className="twitter"
+          >
+            <FaTwitter /> Twitter
+          </a>
+
+          <a href="mailto:youremail@example.com" className="email">
+            <FaEnvelope /> Email
+          </a>
+
+          <a href="https://yourportfolio.com" target="_blank" rel="noreferrer" className="web">
+            <FaGlobe /> Portfolio
           </a>
         </div>
       </div>

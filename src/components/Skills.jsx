@@ -5,22 +5,23 @@ import {
   FaCss3Alt,
   FaJs,
   FaReact,
-  FaGitAlt,
+  FaGithub,
   FaLaptopCode,
-  FaBrain,
-} from "react-icons/fa";
-import { SiBlockchaindotcom } from "react-icons/si";
+  FaFigma,
+}
+ from "react-icons/fa";
+  import { GiBearHead } from "react-icons/gi";
 import "../styles/Skills.css";
 
 const skills = [
-  { name: "HTML", level: 95, icon: FaHtml5, color: "#E34F26" },
-  { name: "CSS", level: 90, icon: FaCss3Alt, color: "#1572B6" },
-  { name: "JavaScript", level: 85, icon: FaJs, color: "#F7DF1E" },
-  { name: "React", level: 80, icon: FaReact, color: "#61DAFB" },
-  { name: "Git & GitHub", level: 88, icon: FaGitAlt, color: "#F05032" },
-  { name: "Frontend Architecture", level: 92, icon: FaLaptopCode, color: "#B6EADA" },
-  { name: "AI Integration", level: 82, icon: FaBrain, color: "#9D4EDD" },
-  { name: "Blockchain", level: 50, icon: SiBlockchaindotcom, color: "#F2A900" },
+ { name: "HTML", level: 95, icon: FaHtml5, color: "#E34F26" },       // HTML official
+  { name: "CSS", level: 90, icon: FaCss3Alt, color: "#1572B6" },      // CSS official
+  { name: "JavaScript", level: 85, icon: FaJs, color: "#F7DF1E" },    // JS official
+  { name: "React", level: 80, icon: FaReact, color: "#61DAFB" },      // React official
+  { name: "Git & GitHub", level: 88, icon: FaGithub, color: "#ffffff" }, // GitHub official (black)
+  { name: "Frontend Architecture", level: 92, icon: FaLaptopCode, color: "#007bff" },
+  { name: "Figma", level: 72, icon: FaFigma, color: "#F24E1E" },      // Figma red/orange tone
+  { name: "Zustand", level: 50, icon: GiBearHead, color: "#785FFF" }, // Zus
 ];
 
 const SkillCard = ({ skill }) => {

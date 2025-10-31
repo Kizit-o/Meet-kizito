@@ -8,10 +8,16 @@ import "@fontsource/allerta-stencil";
 function About() {
   const imageRef = useRef(null);
 
-  useEffect(() => {
-    ({});
-
+    useEffect(() => {
     const img = imageRef.current;
+    let rafId;
+
+    const state = {
+      rotationX: 0,
+      rotationY: 0,
+      targetX: 0,
+      targetY: 0,
+    };
 
     const handleMove = (e) => {
       const rect = img.getBoundingClientRect();
@@ -20,20 +26,44 @@ function About() {
       const midX = rect.width / 2;
       const midY = rect.height / 2;
 
-      const rotateX = ((y - midY) / midY) * 10; // vertical tilt
-      const rotateY = ((x - midX) / midX) * -10; // horizontal tilt
+      // smoother & deeper tilt (controlled by intensity)
+      const intensity = 20;
+      state.targetX = ((y - midY) / midY) * intensity;
+      state.targetY = ((x - midX) / midX) * -intensity;
 
-      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(0.97)`;
+      // Add light spot effect
+      const lightX = (x / rect.width) * 100;
+      const lightY = (y / rect.height) * 100;
+      img.style.setProperty("--light-x", `${lightX}%`);
+      img.style.setProperty("--light-y", `${lightY}%`);
     };
 
     const handleLeave = () => {
-      img.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+      state.targetX = 0;
+      state.targetY = 0;
     };
+
+    const animate = () => {
+      // Lerp (easing)
+      state.rotationX += (state.targetX - state.rotationX) * 0.1;
+      state.rotationY += (state.targetY - state.rotationY) * 0.1;
+
+      img.style.transform = `
+        rotateX(${state.rotationX}deg)
+        rotateY(${state.rotationY}deg)
+        scale(0.98)
+      `;
+
+      rafId = requestAnimationFrame(animate);
+    };
+
+    animate();
 
     img.addEventListener("mousemove", handleMove);
     img.addEventListener("mouseleave", handleLeave);
 
     return () => {
+      cancelAnimationFrame(rafId);
       img.removeEventListener("mousemove", handleMove);
       img.removeEventListener("mouseleave", handleLeave);
     };
