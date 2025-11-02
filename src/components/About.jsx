@@ -89,12 +89,15 @@ function About() {
         {/* Right side: text */}
         <div className="about-right">
           <h1>About Me</h1>
-          <p>
-            I'm <strong>Kizito</strong>, a <strong>certified web developer</strong> with six years of <strong>self-directed</strong> learning.  
-            I am <strong>creative</strong> with bringing ideas to life with responsive and user-friendly interfaces.  
-            I specialize in various technologies that help with the transformation through{" "}
-            <strong>HTML</strong>. <strong>CSS</strong>. <strong>JavaScript</strong>. <strong>React</strong>. and <strong>AI</strong>.
-          </p>
+         <p>
+  I’m <strong>Kizito</strong>, a passionate <strong>Frontend Developer</strong> and <strong>Electronics Engineer in the making</strong> from Lagos, Nigeria.  
+  My tech journey began at eleven when I held a Nokia Asha and wondered, <em>“How is this even possible?”</em> — a question that sparked my lifelong curiosity for technology.  
+  With over <strong>six years of self-directed learning</strong>, I’ve grown from experimenting with circuits to building sleek, responsive, and human-centered digital experiences.  
+  I specialize in crafting modern interfaces using <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>React</strong>, and <strong>AI-driven tools</strong> to turn ideas into impactful products.  
+  <br /><br />
+  <em>Curiosity drives my code — and innovation keeps me building.</em>
+</p>
+
         </div>
       </div>
     </section>

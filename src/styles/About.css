@@ -2,9 +2,9 @@
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
   overflow: hidden;
-  width: 1320px;
+  width: 100%;
   max-width: 1320px;
-  height: 100vh;
+  min-height: 100vh; /* changed from fixed height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,8 @@
   margin: 0 auto;
   flex-wrap: wrap;
   background: #03001C;
-  padding: 0; /* Prevent internal spacing */
+  padding: 3rem 1rem; /* adds breathing room */
+  box-sizing: border-box;
 }
 
 .about-container {
@@ -34,6 +35,7 @@
 
 .about-image {
   width: 100%;
+  height: 150px;
   max-width: 450px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -49,16 +51,28 @@
   box-shadow: 0 15px 40px rgba(182, 234, 218, 0.4);
 }
 
-/* Right - Text */
 .about-right {
   flex: 1;
   text-align: left;
   border: 3px solid #B6EADA;
-   padding: 3.9rem 3rem 3.9rem; /* adds vertical and horizontal spacing */
-  box-sizing: border-box; 
-  height: 100%;
+  padding: 3rem 2rem; /* reduced slightly */
+  box-sizing: border-box;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
+  background: rgba(255, 255, 255, 0.02);
+  overflow-y: auto; /* allows scroll if content overflows */
+  max-height: 90vh; /* keeps content inside viewport */
+  scrollbar-width: thin;
+  scrollbar-color: #B6EADA transparent;
+}
+
+/* optional: smooth scrollbar */
+.about-right::-webkit-scrollbar {
+  width: 6px;
+}
+.about-right::-webkit-scrollbar-thumb {
+  background-color: #B6EADA;
+  border-radius: 10px;
 }
 
 .about-right h1 {
@@ -70,12 +84,12 @@
 }
 
 .about-right p {
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  line-height: 1.7;
+  font-size: clamp(1rem, 2vw, 1.1rem); /* slightly smaller */
+  line-height: 1.8;
   font-family: 'Archivo', sans-serif;
   color: #fff;
+  word-break: break-word; /* prevent text from spilling */
 }
-
 .about-right strong {
   color: #007bff;
   font-weight: 600;
