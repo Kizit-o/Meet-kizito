@@ -8,7 +8,7 @@
   padding: 4.5rem 2rem 2rem; /* pushes hero downward */
 }
  
-.hero h1 {
+.hero-title {
   font-size: 9rem;
   color: #fff;
   margin-bottom: 1rem;
@@ -48,9 +48,11 @@
 font-size: 8rem;
 }
 
-.frontend{
- color: #007bff;
- text-shadow: 0 10px 10px rgb(0, 0, 0);;
+.frontend {
+  color: #007bff;
+  font-weight: 700;
+  display: inline-block;
+  margin-left: 0.5rem;
 }
 
 .hero-buttons {
