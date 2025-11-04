@@ -7,7 +7,7 @@ function Navbar() {
     AOS.init({
       duration: 800,
       easing: "ease-in-out",
-      once: true, // smoother for a navbar that doesn’t re-animate every scroll
+      once: true,
       offset: 80,
     });
   }, []);
