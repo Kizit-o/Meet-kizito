@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "@fontsource/allerta-stencil";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -8,22 +10,23 @@ import {
   FaGithub,
   FaLaptopCode,
   FaFigma,
-}
- from "react-icons/fa";
-  import { GiBearHead } from "react-icons/gi";
+} from "react-icons/fa";
+import { GiBearHead } from "react-icons/gi";
 import "../styles/Skills.css";
 
+// 🧠 Skill Data
 const skills = [
- { name: "HTML", level: 95, icon: FaHtml5, color: "#E34F26" },       // HTML official
-  { name: "CSS", level: 90, icon: FaCss3Alt, color: "#1572B6" },      // CSS official
-  { name: "JavaScript", level: 85, icon: FaJs, color: "#F7DF1E" },    // JS official
-  { name: "React", level: 80, icon: FaReact, color: "#61DAFB" },      // React official
-  { name: "Git & GitHub", level: 88, icon: FaGithub, color: "#ffffff" }, // GitHub official (black)
-  { name: "Frontend Architecture", level: 92, icon: FaLaptopCode, color: "#007bff" },
-  { name: "Figma", level: 72, icon: FaFigma, color: "#F24E1E" },      // Figma red/orange tone
-  { name: "Zustand", level: 50, icon: GiBearHead, color: "#785FFF" }, // Zus
+  { name: "HTML5", level: 95, icon: FaHtml5, color: "#E34F26" },
+  { name: "CSS3", level: 90, icon: FaCss3Alt, color: "#1572B6" },
+  { name: "JavaScript", level: 85, icon: FaJs, color: "#F7DF1E" },
+  { name: "React", level: 80, icon: FaReact, color: "#61DAFB" },
+  { name: "Git & GitHub", level: 88, icon: FaGithub, color: "#ffffff" },
+  { name: "Frontend", level: 92, icon: FaLaptopCode, color: "#007bff" },
+  { name: "Figma", level: 72, icon: FaFigma, color: "#F24E1E" },
+  { name: "Zustand", level: 50, icon: GiBearHead, color: "#785FFF" },
 ];
 
+// 🎯 Skill Card
 const SkillCard = ({ skill }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +42,6 @@ const SkillCard = ({ skill }) => {
     );
 
     if (cardRef.current) observer.observe(cardRef.current);
-
     return () => {
       if (cardRef.current) observer.unobserve(cardRef.current);
     };
@@ -123,13 +125,32 @@ const SkillCard = ({ skill }) => {
   );
 };
 
+// ⚡ Main Skills Section
 const Skills = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-out-cubic",
+      once: true,
+    });
+  }, []);
+
   return (
     <section className="skills-section" id="skills">
       <h2 className="skills-title">My Stack</h2>
+
       <div className="skills-grid">
         {skills.map((skill, index) => (
-          <SkillCard key={index} skill={skill} />
+          <div
+            key={index}
+            data-aos="fade-down"
+            data-aos-offset="200"
+            data-aos-duration="800"
+            data-aos-delay={index * 150} // 🕒 cascading drop
+            data-aos-anchor-placement="top-bottom"
+          >
+            <SkillCard skill={skill} />
+          </div>
         ))}
       </div>
     </section>

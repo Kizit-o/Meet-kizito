@@ -1,103 +1,112 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "../styles/About.css";
-import MeImg from "../assets/MEE.jpg";
+
+// Assets
+import MeImg1 from "../assets/MEE.jpg";
+import MeImg2 from "../assets/NFT.png";
+import MeImg3 from "../assets/prompto.png";
+
+// Fonts
 import "@fontsource/bungee-shade";
 import "@fontsource/allerta-stencil";
 
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 function About() {
-  const imageRef = useRef(null);
-
-    useEffect(() => {
-    const img = imageRef.current;
-    let rafId;
-
-    const state = {
-      rotationX: 0,
-      rotationY: 0,
-      targetX: 0,
-      targetY: 0,
-    };
-
-    const handleMove = (e) => {
-      const rect = img.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const midX = rect.width / 2;
-      const midY = rect.height / 2;
-
-      // smoother & deeper tilt (controlled by intensity)
-      const intensity = 20;
-      state.targetX = ((y - midY) / midY) * intensity;
-      state.targetY = ((x - midX) / midX) * -intensity;
-
-      // Add light spot effect
-      const lightX = (x / rect.width) * 100;
-      const lightY = (y / rect.height) * 100;
-      img.style.setProperty("--light-x", `${lightX}%`);
-      img.style.setProperty("--light-y", `${lightY}%`);
-    };
-
-    const handleLeave = () => {
-      state.targetX = 0;
-      state.targetY = 0;
-    };
-
-    const animate = () => {
-      // Lerp (easing)
-      state.rotationX += (state.targetX - state.rotationX) * 0.1;
-      state.rotationY += (state.targetY - state.rotationY) * 0.1;
-
-      img.style.transform = `
-        rotateX(${state.rotationX}deg)
-        rotateY(${state.rotationY}deg)
-        scale(0.98)
-      `;
-
-      rafId = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    img.addEventListener("mousemove", handleMove);
-    img.addEventListener("mouseleave", handleLeave);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      img.removeEventListener("mousemove", handleMove);
-      img.removeEventListener("mouseleave", handleLeave);
-    };
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      easing: "ease-in-out",
+      once: false,
+      offset: 100,
+    });
   }, []);
 
   return (
     <section id="about" className="about">
       <div className="about-container">
-        {/* Left side: image */}
-        <div className="about-left">
-          <div
-            ref={imageRef}
-            className="about-image"
-            style={{
-              backgroundImage: `url(${MeImg})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              height: "450px",
-            }}
-          ></div>
+        {/* LEFT SIDE - Carousel */}
+        <div
+          className="about-left"
+          data-aos="fade-right"
+          data-aos-delay="200"
+        >
+          <div className="about-carousel">
+            <Swiper
+              modules={[Autoplay, Pagination, Navigation]}
+              slidesPerView={1}
+              spaceBetween={0}
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              pagination={{ clickable: true }}
+              navigation={false}
+              effect="slide"
+              className="about-swiper"
+            >
+              {[MeImg1, MeImg2, MeImg3].map((img, i) => (
+                <SwiperSlide key={i}>
+                  <div
+                    className="about-image"
+                    style={{ backgroundImage: `url(${img})` }}
+                  ></div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
 
-        {/* Right side: text */}
-        <div className="about-right">
-          <h1>About Me</h1>
-         <p>
-  I’m <strong>Kizito</strong>, a passionate <strong>Frontend Developer</strong> and <strong>Electronics Engineer in the making</strong> from Lagos, Nigeria.  
-  My tech journey began at eleven when I held a Nokia Asha and wondered, <em>“How is this even possible?”</em> — a question that sparked my lifelong curiosity for technology.  
-  With over <strong>six years of self-directed learning</strong>, I’ve grown from experimenting with circuits to building sleek, responsive, and human-centered digital experiences.  
-  I specialize in crafting modern interfaces using <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>React</strong>, and <strong>AI-driven tools</strong> to turn ideas into impactful products.  
-  <br /><br />
-  <em>Curiosity drives my code — and innovation keeps me building.</em>
-</p>
+        {/* RIGHT SIDE - Text */}
+        <div
+          className="about-right"
+          data-aos="fade-left"
+          data-aos-delay="400"
+        >
+          <h1 data-aos="fade-down" data-aos-delay="500">
+            About Me
+          </h1>
 
+          <p className="about-text">
+            <span data-aos="fade-down" data-aos-delay="100">I’m&nbsp;</span>
+            <strong data-aos="fade-down" data-aos-delay="200">K</strong>
+            <strong data-aos="fade-down" data-aos-delay="300">i</strong>
+            <strong data-aos="fade-down" data-aos-delay="400">z</strong>
+            <strong data-aos="fade-down" data-aos-delay="500">i</strong>
+            <strong data-aos="fade-down" data-aos-delay="600">t</strong>
+            <strong data-aos="fade-down" data-aos-delay="700">o</strong>
+            <span data-aos="fade-down" data-aos-delay="800">, a passionate </span>
+            <strong data-aos="fade-down" data-aos-delay="900">Frontend Developer</strong>
+            <span data-aos="fade-down" data-aos-delay="1000"> and </span>
+            <strong data-aos="fade-down" data-aos-delay="1100">
+              Electronics Engineer in the making
+            </strong>
+            <span data-aos="fade-down" data-aos-delay="1200">
+              {" "}from Lagos, Nigeria. My tech journey began at eleven when I held a
+              Nokia Asha and wondered, “How is this even possible?” That curiosity
+              still drives me today.
+            </span>
+            <span data-aos="fade-down" data-aos-delay="1300">
+              {" "}With over <strong>six years of self-directed learning</strong>, I’ve
+              grown from experimenting with circuits to building sleek, responsive,
+              and human-centered digital experiences.
+            </span>
+            <span data-aos="fade-down" data-aos-delay="1400">
+              {" "}I specialize in crafting modern interfaces using{" "}
+              <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>,{" "}
+              <strong>React</strong>, and <strong>AI-driven tools</strong> to turn ideas
+              into impactful products. Curiosity drives my code — innovation keeps me
+              building.
+            </span>
+          </p>
         </div>
       </div>
     </section>

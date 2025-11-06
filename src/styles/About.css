@@ -4,7 +4,7 @@
   overflow: hidden;
   width: 100%;
   max-width: 1320px;
-  min-height: 100vh; /* changed from fixed height */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,10 +12,11 @@
   margin: 0 auto;
   flex-wrap: wrap;
   background: #03001C;
-  padding: 3rem 1rem; /* adds breathing room */
+  padding: 3rem 1rem;
   box-sizing: border-box;
 }
 
+/* Container */
 .about-container {
   display: flex;
   align-items: center;
@@ -26,24 +27,37 @@
   flex-wrap: wrap;
 }
 
-/* Left - Image */
+/* LEFT SIDE (Carousel) */
 .about-left {
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
+.about-carousel {
+  width: 100%;
+  max-width: 450px;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.about-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* Each image inside swiper */
 .about-image {
   width: 100%;
-  height: 150px;
-  max-width: 450px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: none;
-  border-top-right-radius: none;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
   box-shadow: 0 10px 30px rgba(182, 234, 218, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .about-image:hover {
@@ -51,22 +65,46 @@
   box-shadow: 0 15px 40px rgba(182, 234, 218, 0.4);
 }
 
+/* Slide transitions */
+.swiper-slide {
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: all 0.6s ease;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.swiper-pagination-bullet {
+  background: #b6eada !important;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #00bfff !important;
+}
+
+/* RIGHT SIDE */
 .about-right {
   flex: 1;
   text-align: left;
   border: 3px solid #B6EADA;
-  padding: 3rem 2rem; /* reduced slightly */
-  box-sizing: border-box;
+  padding: 3rem 2rem;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   background: rgba(255, 255, 255, 0.02);
-  overflow-y: auto; /* allows scroll if content overflows */
-  max-height: 90vh; /* keeps content inside viewport */
+  overflow-y: auto;
+  max-height: 90vh;
   scrollbar-width: thin;
   scrollbar-color: #B6EADA transparent;
 }
 
-/* optional: smooth scrollbar */
+/* scrollbar */
 .about-right::-webkit-scrollbar {
   width: 6px;
 }
@@ -75,27 +113,26 @@
   border-radius: 10px;
 }
 
+/* TEXT */
 .about-right h1 {
-  font-size: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(1.5rem, 3vw, 3rem);
   margin-bottom: 1rem;
   color: #B6EADA;
-  font-family: 'Stencil';
-  font-weight: 400;
+  font-family: "Allerta Stencil", sans-serif;
 }
 
 .about-right p {
-  font-size: clamp(1rem, 2vw, 1.1rem); /* slightly smaller */
+  font-size: clamp(1rem, 2vw, 1.1rem);
   line-height: 1.8;
-  font-family: 'Archivo', sans-serif;
   color: #fff;
-  word-break: break-word; /* prevent text from spilling */
-}
-.about-right strong {
-  color: #007bff;
-  font-weight: 600;
+  font-family: 'Archivo', sans-serif;
 }
 
-/* Responsive */
+.about-right strong {
+  color: #00bfff;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
@@ -104,5 +141,16 @@
 
   .about-right {
     text-align: center;
+    border-radius: 20px;
+    max-height: none;
+  }
+
+  .about-carousel {
+    height: 350px;
+    max-width: 350px;
+  }
+
+  .about-image {
+    height: 350px;
   }
 }
