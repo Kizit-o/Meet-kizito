@@ -79,14 +79,14 @@
 }
 
 .swiper-pagination-bullet {
-  background: #b6eada !important;
   opacity: 0.4;
   transition: opacity 0.3s ease;
+  background: none !important;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #00bfff !important;
+  background: none !important;
 }
 
 /* RIGHT SIDE */
@@ -119,6 +119,7 @@
   margin-bottom: 1rem;
   color: #B6EADA;
   font-family: "Allerta Stencil", sans-serif;
+  font-weight: 400;
 }
 
 .about-right p {
@@ -126,6 +127,7 @@
   line-height: 1.8;
   color: #fff;
   font-family: 'Archivo', sans-serif;
+  font-weight:  20;
 }
 
 .about-right strong {

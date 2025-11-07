@@ -5,10 +5,11 @@
   text-align: center;
   color: #ffffff;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  
 }
 
 .contact h2 {
-    font-family: 'Stencil';
+    font-family: "Allerta Stencil", sans-serif;
     color: #B6EADA;
     font-weight: 400;
   font-size: clamp(2rem, 5vw, 3rem);
@@ -97,6 +98,8 @@
   /* ✅ Horizontally center within parent */
   margin-left: auto;
   margin-right: auto;
+  border: 2px solid #B6EADA;
+  padding: 3rem 2rem;
 }
 
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa"; // use React Icons for burger
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "@fontsource/allerta-stencil";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
