@@ -17,13 +17,12 @@ const storyChapters = [
     chapter: "Chapter 1",
     title: "The Building Blocks",
     period: "2020-2021",
-    narrative: "Your story starts here. Describe how you first encountered code, what drew you in, and those early moments of discovery.", // YOUR STORY HERE
-    struggle: "", // YOUR STRUGGLE HERE (optional)
-    breakthrough: "", // YOUR AHA MOMENT HERE (optional)
+    narrative: "2020 was the year i discovered web Development", // YOUR STORY HERE
+    struggle: "I had a huge misunderstanding of what i was doing", // YOUR STRUGGLE HERE (optional)
+    breakthrough: "But i was determined to learn, and it paid off in 2021", // YOUR AHA MOMENT HERE (optional)
     skills: [
       { name: "HTML5", icon: FaHtml5, color: "#E34F26", level: "Foundation" },
       { name: "CSS3", icon: FaCss3Alt, color: "#1572B6", level: "Foundation" },
-      { name: "JavaScript", icon: FaJs, color: "#F7DF1E", level: "Foundation" }
     ],
     atmosphereClass: "chapter-atmosphere-1",
     accentColor: "#E34F26"
@@ -33,7 +32,7 @@ const storyChapters = [
     chapter: "Chapter 2",
     title: "The Framework Evolution",
     period: "2022-2023",
-    narrative: "The turning point. Describe the moment you realized you needed more power, more structure. What made you dive into modern frameworks?", // YOUR STORY HERE
+    narrative: "", // YOUR STORY HERE
     struggle: "", // YOUR STRUGGLE HERE (optional)
     breakthrough: "", // YOUR AHA MOMENT HERE (optional)
     skills: [

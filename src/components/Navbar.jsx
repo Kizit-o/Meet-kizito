@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa"; // use React Icons for burger
+import { FaBars, FaTimes } from "react-icons/fa"; 
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "@fontsource/allerta-stencil";

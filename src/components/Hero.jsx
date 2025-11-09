@@ -23,18 +23,26 @@ function Hero() {
         {/* Main Title */}
         <div className="hero-title-wrapper" data-aos="fade-up" data-aos-duration="600">
           <h1 className="hero-title">
-            <span className="title-meet">MEET</span>
-            <span className="title-name">KIZITO</span>
+           <span class="title-meet" data-aos="fade-down" data-aos-delay="100">M</span>
+       <span class="title-meet" data-aos="fade-down" data-aos-delay="200">E</span>
+        <span class="title-meet" data-aos="fade-down" data-aos-delay="300">E</span>
+       <span class="title-meet" data-aos="fade-down" data-aos-delay="400">T</span>        &nbsp;
+         <span class="title-name" data-aos="fade-down" data-aos-delay="500">K</span>
+         <span class="title-name" data-aos="fade-down" data-aos-delay="600">I</span>
+         <span class="title-name" data-aos="fade-down" data-aos-delay="700">Z</span>
+         <span class="title-name" data-aos="fade-down" data-aos-delay="800">I</span>
+         <span class="title-name" data-aos="fade-down" data-aos-delay="900">T</span>
+         <span class="title-name" data-aos="fade-down" data-aos-delay="1000">O</span>
           </h1>
           <div className="title-underline"></div>
         </div>
 
         {/* Role & Value Proposition */}
         <div className="hero-intro" data-aos="fade-up" data-aos-delay="200">
-          <p className="hero-role">Frontend Developer & Problem Solver</p>
+          <p className="hero-role">FRONTEND~DEVELOPER</p>
           <p className="hero-tagline">
-            I transform complex business challenges into elegant, 
-            <span className="highlight"> high-performing web solutions</span>
+        
+            <span className="highlight"> Building user-friendly interfaces.</span>
           </p>
         </div>
 
