@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import "@fontsource/allerta-stencil";
 import Projimg1 from "../assets/proj1.png";
 import NFT from "../assets/NFT.png";
 import Prompto from "../assets/Prompto.png";
-import Zyra from "../assets/Zyra2.jpg";
+import Zyra from "../assets/Zyra.jpg";
+import certificate from "../assets/cert.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const projects = [
   {
     title: "Portfolio Website",
     description:
       "A personal portfolio showcasing my skills, projects, and contact info with responsive animations.",
-    image:
-      Projimg1,
+    image: Projimg1,
     techStack: ["React", "JavaScript", "Vite", "CSS3"],
     github: "https://github.com/Chisomkizito/portfolio",
     live: "https://chisomkizito.vercel.app",
@@ -21,8 +23,7 @@ const projects = [
     title: "Prompto",
     description:
       "AI-powered web application that transforms raw user inputs into expertly crafted prompts for large language models (LLMs).",
-    image:
-      Prompto,
+    image: Prompto,
     techStack: ["React", "Open AI", "JavaScript"],
     github: "https://github.com/Chisomkizito/crypto-dashboard",
     live: "#",
@@ -31,8 +32,7 @@ const projects = [
     title: "KZT-NFTs",
     description:
       "An interactive music gallery that connects users with trending songs and custom playlists.",
-    image:
-      NFT,
+    image: NFT,
     techStack: ["React", "Tailwind", "Firebase"],
     github: "https://github.com/Chisomkizito/music-showcase",
     live: "#",
@@ -43,47 +43,38 @@ const startupProjects = [
   {
     title: "Zyra — Crowdfunding Platform",
     description:
-      "A startup project helping individuals and businesses raise funds securely and conveniently. Built with a focus on transparency, accessibility, and trust.",
-    image:
-      Zyra,
+      "Zyra is a donations-facilitation platform built for Africa. It helps individuals and communities raise funds for medical, educational, or social needs, while enabling donors worldwide to give in crypto or fiat with full transparency.",
+    image: Zyra,
     techStack: ["React", "Node.js", "MongoDB", "Vite"],
     github: "https://github.com/Chisomkizito/zyra",
-    live: "#",
+    live: "https://zyra.fund",
   },
 ];
 
 const featuredProject = {
-  title: "Featured Project",
-  role: "Coming soon.....",
+  title: "Testimonial",
+  role: "Developer",
   description:
-    "Null",
-  image:
-    "",
-  techStack: ["coming soon....."],
+    "A completion of Legacy Responsive Web design V8 in freecodecamp.org",
+  image: certificate,
+  techStack: ["HTML", "CSS"],
   github: "https://github.com/Chisomkizito/enterprise-project",
   live: "#",
-}
-  
-  const Testimonials = {
-  title: "Testimonials",
-  role: "Coming soon.....",
-  description:
-    "Null",
-  image:
-    "",
-  techStack: ["coming soon....."],
-  github: "https://github.com/Chisomkizito/enterprise-project",
-  live: "#",
-  }
-    ;
+};
 
 function Projects() {
   const [hoveredCard, setHoveredCard] = useState(null);
 
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true, easing: "ease-out" });
+  }, []);
+
   return (
     <section id="projects" className="projects">
       <div className="projects-container">
-        <h2 className="projects-title">My Projects</h2>
+        <h2 className="projects-title" data-aos="fade-up" data-aos-delay="200">
+          My Projects
+        </h2>
 
         <div className="projects-grid">
           {projects.map((project, index) => (
@@ -92,6 +83,8 @@ function Projects() {
               className="project-card"
               onMouseEnter={() => setHoveredCard(`project-${index}`)}
               onMouseLeave={() => setHoveredCard(null)}
+              data-aos="fade-up"
+              data-aos-delay={index * 150}
             >
               <div className="project-image-wrapper">
                 <img
@@ -114,11 +107,7 @@ function Projects() {
                 </div>
 
                 <div className="project-links">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href={project.github} target="_blank" rel="noreferrer">
                     <FaGithub /> Code
                   </a>
                   <a href={project.live} target="_blank" rel="noreferrer">
@@ -130,26 +119,29 @@ function Projects() {
           ))}
         </div>
 
-        <h2 className="projects-title" style={{ marginTop: "4rem" }}>
+        {/* Startup Project Section */}
+        <h2 className="projects-title" style={{ marginTop: "4rem" }} data-aos="fade-up">
           Startup Project
         </h2>
-        <div className="projects-grid">
+        <div className="startup-projects-container">
           {startupProjects.map((startup, index) => (
             <div
               key={index}
-              className="project-card"
+              className="startup-project-card"
               onMouseEnter={() => setHoveredCard(`startup-${index}`)}
               onMouseLeave={() => setHoveredCard(null)}
+              data-aos="fade-up"
+              data-aos-delay={index * 150}
             >
-              <div className="project-image-wrapper">
+              <div className="startup-project-image-wrapper">
                 <img
                   src={startup.image}
                   alt={startup.title}
-                  className="project-image"
+                  className="startup-project-image"
                 />
               </div>
 
-              <div className="project-content">
+              <div className="startup-project-content">
                 <h3 className="project-title">{startup.title}</h3>
                 <p className="project-description">{startup.description}</p>
 
@@ -174,10 +166,11 @@ function Projects() {
           ))}
         </div>
 
-        <h2 className="projects-title" style={{ marginTop: "4rem" }}>
-          Featured Work
+        {/* Certification Section */}
+        <h2 className="projects-title" style={{ marginTop: "4rem" }} data-aos="fade-up">
+          Certification
         </h2>
-        <div className="featured-card">
+        <div className="featured-card" data-aos="fade-up">
           <div className="featured-image-wrapper">
             <img
               src={featuredProject.image}
@@ -189,9 +182,14 @@ function Projects() {
           <div className="featured-content">
             <h3 className="featured-title">{featuredProject.title}</h3>
             <p className="featured-role">{featuredProject.role}</p>
-            <p className="project-description">
-              {featuredProject.description}
-            </p>
+
+            <div className="testimonial-rating">{"★".repeat(5)}</div>
+
+            <p className="featured-description">{featuredProject.description}</p>
+
+            <div className="testimonial-badge">
+              <span>✓</span> Verified by freeCodeCamp
+            </div>
 
             <div className="project-tech">
               {featuredProject.techStack.map((tech, i) => (
@@ -203,15 +201,13 @@ function Projects() {
 
             <div className="project-links">
               <a href={featuredProject.github} target="_blank" rel="noreferrer">
-                <FaGithub /> Code
+                <FaGithub /> View Projects
               </a>
-              <a href={featuredProject.live} target="_blank" rel="noreferrer">
-                <FaExternalLinkAlt /> Live Demo
+              <a href={featuredProject.live} target="https://www.freecodecamp.org/certification/kizztech/responsive-web-design" rel="noreferrer">
+                <FaExternalLinkAlt /> View Certificate
               </a>
             </div>
           </div>
-
-          
         </div>
       </div>
     </section>

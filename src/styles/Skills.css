@@ -177,7 +177,7 @@
 
 .skills-insight-title {
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: light;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
@@ -195,6 +195,8 @@
   color: #B6EADA;
   margin: 0;
   line-height: 1.6;
+  font-weight: 100;
+  font-size: 1rem;
 }
 
 /* ============================
@@ -286,6 +288,40 @@
 
 .skills-cta-button:hover {
   box-shadow: 0 0 30px rgba(182, 234, 218, 0.5);
+}
+
+/* Add these to Skills.css */
+
+.skill-icon-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.progress-ring-bg {
+  opacity: 0.2;
+}
+
+.progress-ring-circle {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.8s ease-in-out;
+  filter: drop-shadow(0 0 6px rgba(182, 234, 218, 0.3));
 }
 
 /* ============================

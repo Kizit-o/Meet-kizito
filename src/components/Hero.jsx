@@ -4,6 +4,7 @@ import { SiReact, SiTailwindcss, SiJavascript, SiFigma } from 'react-icons/si';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import "@fontsource/allerta-stencil";
 
 function Hero() {
   useEffect(() => {
@@ -26,7 +27,8 @@ function Hero() {
            <span class="title-meet" data-aos="fade-down" data-aos-delay="100">M</span>
        <span class="title-meet" data-aos="fade-down" data-aos-delay="200">E</span>
         <span class="title-meet" data-aos="fade-down" data-aos-delay="300">E</span>
-       <span class="title-meet" data-aos="fade-down" data-aos-delay="400">T</span>        &nbsp;
+            <span class="title-meet" data-aos="fade-down" data-aos-delay="400">T</span>
+            &nbsp;
          <span class="title-name" data-aos="fade-down" data-aos-delay="500">K</span>
          <span class="title-name" data-aos="fade-down" data-aos-delay="600">I</span>
          <span class="title-name" data-aos="fade-down" data-aos-delay="700">Z</span>
@@ -38,21 +40,21 @@ function Hero() {
         </div>
 
         {/* Role & Value Proposition */}
-        <div className="hero-intro" data-aos="fade-up" data-aos-delay="200">
+        <div className="hero-intro" data-aos="fade-up" data-aos-delay="700">
           <p className="hero-role">FRONTEND~DEVELOPER</p>
           <p className="hero-tagline">
         
-            <span className="highlight"> Building user-friendly interfaces.</span>
+            <span className="highlight" data-aos="fade-up" data-aos-delay="800"> Building the web’s front-end — where design meets function.</span>
           </p>
         </div>
 
         {/* CTAs */}
         <div className="hero-cta" data-aos="fade-up" data-aos-delay="400">
-          <button className="btn-primary">
+          <button className="btn-primary" data-aos="slide-right" data-aos-delay="600">
             <span>View My Work</span>
             <FaArrowRight className="btn-icon" />
           </button>
-          <button className="btn-secondary">
+          <button className="btn-secondary" data-aos="slide-left" data-aos-delay="700">
             <FaEnvelope className="btn-icon" />
             <span>Let's Talk</span>
           </button>

@@ -1,10 +1,10 @@
 .footer {
-  background: linear-gradient(135deg, #0f1830, #1e2a45);
   color: #e6f4f1;
   padding: 2rem 1rem;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-family: 'Plus Jakarta Sans', sans-serif;
+  height: 10vh;
 }
 
 .footer-container {
@@ -13,13 +13,16 @@
 }
 
 .footer-text {
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   opacity: 0.85;
   margin-bottom: 1rem;
+  font-weight: light;
+  font-family: "Allerta Stencil", sans-serif;
 }
 
 .footer-name {
-  font-weight: 600;
+  font-weight: bold;
+  font-family: "Allerta Stencil", sans-serif;
   color: #6e9a90;
   transition: color 0.3s ease;
 }
@@ -49,7 +52,6 @@
   left: 0;
   width: 0%;
   height: 1px;
-  background-color: #b6eada;
   transition: width 0.3s ease;
 }
 

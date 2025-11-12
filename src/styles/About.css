@@ -2,8 +2,6 @@
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
   overflow: hidden;
-  width: 100%;
-  max-width: 1320px;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -11,7 +9,7 @@
   gap: 3rem;
   margin: 0 auto;
   flex-wrap: wrap;
-  background: #03001C;
+ 
   padding: 3rem 1rem;
   box-sizing: border-box;
 }
@@ -115,18 +113,18 @@
 
 /* TEXT */
 .about-right h1 {
-  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-size: clamp(3rem, 6vw, 3rem);
   margin-bottom: 1rem;
   color: #B6EADA;
   font-family: "Allerta Stencil", sans-serif;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .about-right p {
   font-size: clamp(1rem, 2vw, 1.1rem);
   line-height: 1.8;
   color: #fff;
-  font-family: 'Archivo', sans-serif;
+  font-family: "Allerta Stencil", sans-serif;
   font-weight:  20;
 }
 

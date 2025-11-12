@@ -5,23 +5,6 @@ import "../styles/Contact.css";
 function Contact() {
   return (
     <section id="contact" className="contact">
-      <h2 data-aos="fade-up">Get In Touch</h2>
-
-      <form data-aos="fade-up" data-aos-delay="100">
-        <div className="form-group">
-          <input type="text" placeholder="Your Name" required />
-        </div>
-
-        <div className="form-group">
-          <input type="email" placeholder="Your Email" required />
-        </div>
-
-        <div className="form-group">
-          <textarea rows="5" placeholder="Your Message" required></textarea>
-        </div>
-
-        <button type="submit">Send Message</button>
-      </form>
 
       <div className="socials" data-aos="fade-up" data-aos-delay="200">
         <h2>Connect With Me</h2>
@@ -65,6 +48,26 @@ function Contact() {
           </a>
         </div>
       </div>
+      
+      <h2 data-aos="fade-up">Get In Touch</h2>
+
+      <form data-aos="fade-up" data-aos-delay="100">
+        <div className="form-group">
+          <input type="text" placeholder="Your Name" required />
+        </div>
+
+        <div className="form-group">
+          <input type="email" placeholder="Your Email" required />
+        </div>
+
+        <div className="form-group">
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      
     </section>
   );
 }

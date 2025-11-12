@@ -2,13 +2,9 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/About.css";
-
-// Assets
 import MeImg1 from "../assets/MEE3.jpg";
 import MeImg2 from "../assets/MEE4.jpg";
 import MeImg3 from "../assets/MEE5.jpg";
-
-// Fonts
 import "@fontsource/bungee-shade";
 import "@fontsource/allerta-stencil";
 
