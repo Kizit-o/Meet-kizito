@@ -61,22 +61,22 @@ function Hero() {
         </div>
 
         {/* Tech Stack Badges */}
-        <div className="hero-tech-stack" data-aos="fade-up" data-aos-delay="600">
+        <div className="hero-tech-stack" data-aos="fade-up" data-aos-delay="400">
           <p className="tech-label">Built with modern tools</p>
           <div className="tech-badges">
-            <div className="tech-badge" data-aos="zoom-in" data-aos-delay="700">
+            <div className="tech-badge" data-aos="zoom-in" data-aos-delay="400">
               <SiReact />
               <span>React</span>
             </div>
-            <div className="tech-badge" data-aos="zoom-in" data-aos-delay="800">
+            <div className="tech-badge" data-aos="zoom-in" data-aos-delay="500">
               <SiJavascript />
               <span>JavaScript</span>
             </div>
-            <div className="tech-badge" data-aos="zoom-in" data-aos-delay="900">
+            <div className="tech-badge" data-aos="zoom-in" data-aos-delay="600">
               <SiTailwindcss />
               <span>Tailwind</span>
             </div>
-            <div className="tech-badge" data-aos="zoom-in" data-aos-delay="1000">
+            <div className="tech-badge" data-aos="zoom-in" data-aos-delay="700">
               <SiFigma />
               <span>Figma</span>
             </div>

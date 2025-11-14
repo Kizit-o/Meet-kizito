@@ -285,7 +285,6 @@ const Skills = () => {
           <p className="skills-closing-text">
             Every line of code is a step forward. Every bug is a lesson. Every project is a story.
           </p>
-          <div className="skills-cta-button">Explore My Work →</div>
         </div>
       </div>
     </section>

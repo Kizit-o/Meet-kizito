@@ -7,7 +7,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <p className="footer-text">
-          &copy; {new Date().getFullYear()} <span className="footer-name">Meet Kizito</span>. All rights reserved.
+          &copy; {new Date().getFullYear()} <span className="footer-name">Meet Kizito</span>. Built with💙and code.
         </p>
       </div>
     </footer>
