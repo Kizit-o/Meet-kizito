@@ -51,21 +51,6 @@
   padding: 5rem 1.5rem;
 }
 
-/* Chapter Atmospheres 
-.chapter-atmosphere-1 {
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #2d1b3d 100%);
-}
-
-.chapter-atmosphere-2 {
-  background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #1a365d 100%);
-}
-
-.chapter-atmosphere-3 {
-  background: linear-gradient(135deg, #03001C 0%, #1a1147 50%, #301934 100%);
-}
-
-*/
-
 /* Connecting Line Between Chapters */
 .skills-chapter-connecting-line {
   position: absolute;
@@ -324,50 +309,3 @@
   filter: drop-shadow(0 0 6px rgba(182, 234, 218, 0.3));
 }
 
-/* ============================
-   RESPONSIVE DESIGN
-   ============================ */
-
-@media (max-width: 768px) {
-  .skills-hero {
-    padding: 3rem 1.5rem;
-  }
-
-  .skills-chapter-section {
-    padding: 3rem 1.5rem;
-  }
-
-  .skills-chapter-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .skills-chapter-insights {
-    grid-template-columns: 1fr;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-  }
-
-  .skills-skill-card {
-    padding: 1rem;
-  }
-
-  .skills-closing {
-    padding: 3rem 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .skills-chapter-number {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-}

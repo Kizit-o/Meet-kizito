@@ -1,20 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
-
+@import "tailwindcss";
 
 body {
     margin: 0;
   padding: 0;
   font-family: 'Archivo', sans-serif;
   background: radial-gradient(
-      circle at 50% 120%,       /* Glow positioned below the viewport center */
-      #0d5f5f 10%,               /* Soft red glow */
-      #0d5f5f 25%,              /* Blue/violet blend */
-      #0f113a 50%,              /* Deep black blend toward top */
+      circle at 50% 120%,       
+      #0d5f5f 10%,               
+      #0d5f5f 25%,              
+      #0f113a 50%,              
       #000000 100%
   );
   background-attachment: fixed;
@@ -24,24 +18,11 @@ body {
    overflow-x: hidden;
 }
 
-/* 🌊 Smooth breathing glow animation 
-@keyframes softGlow {
-  0% {
-    background: radial-gradient(circle at bottom center, #B6EADA 10%, #03001C 80%);
-  }
-  25% {
-    background: radial-gradient(circle at bottom center, #C2F0E5 20%, #03001C 82%);
-  }
-  50% {
-    background: radial-gradient(circle at bottom center, #D1FFF7 25%, #03001C 85%);
-  }
-  75% {
-    background: radial-gradient(circle at bottom center, #C2F0E5 18%, #03001C 82%);
-  }
-  100% {
-    background: radial-gradient(circle at bottom center, #B6EADA 10%, #03001C 80%);
-  }
+@media (max-width: 768px) {
+ body{
+  overflow-x: scroll;
+ }
 }
 
-*/
+
 

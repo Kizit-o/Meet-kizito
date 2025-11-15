@@ -16,25 +16,46 @@
 
 /* Inner flex */
 .navbar-inner {
+  position: relative;          /* needed for absolutely-positioned toggle */
+  max-width: 1320px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
 }
 
 /* Desktop nav */
 .nav-links {
   display: none;
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 900;
+}
+
+.nav-backdrop.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
 
 @media (min-width: 768px) {
   .nav-links {
     display: flex;
     gap: 2.5rem;
     font-family: "Allerta Stencil", sans-serif;
+    margin: 0;               /* ensure exact centering */
   }
 }
 
@@ -68,17 +89,17 @@
 
 /* Hamburger button */
 .menu-toggle {
-  margin-left: auto;
-  margin-right: 1.5rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 1.8rem;
   color: white;
   background: none;
   border: none;
   cursor: pointer;
-  display: block;
-  transition: transform 0.3s ease, color 0.3s ease;
-  z-index: 50;
-  position: relative;
+  z-index: 1000;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .menu-toggle:hover {
@@ -100,7 +121,6 @@
   height: 50vh;
   width: 35vw;
   max-width: 320px;
-  border-radius: 20px;
   padding: 6rem 2rem 2rem;
   background: #03001c;
   backdrop-filter: blur(10px);
@@ -109,7 +129,7 @@
   gap: 2rem;
   transform: translateX(100%);
   transition: transform 0.3s ease;
-  z-index: 40;
+ z-index: 999;
   border-left: 4px solid rgba(145, 242, 249, 0.473);
 }
 
@@ -135,5 +155,26 @@
 .mobile-link:active {
   color: #91f2f9;
   padding-left: 0.75rem;
+}
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+
+  .mobile-menu {
+    width: 85vw;          /* more realistic drawer */
+    height: 100vh;        /* full height */
+    max-width: none;
+    padding: 5rem 2rem;
+    border-radius: 0;     /* avoid clipping issues */
+    z-index: 999;         /* above hamburger */
+  }
+
+  .menu-toggle {
+    z-index: 1000;        /* above menu during opening */
+  }
+
+  .navbar {
+    top: 0 !important;    /* mobile nav must stay at top */
+  }
 }
 

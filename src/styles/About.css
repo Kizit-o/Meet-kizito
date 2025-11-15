@@ -134,6 +134,18 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+   .about-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  
+
+  p{
+    font-size: 0.1rem;
+  }
+
   .about-container {
     flex-direction: column;
     text-align: center;
@@ -145,13 +157,23 @@
     max-height: none;
   }
 
-  .about-carousel {
-    height: 350px;
+ .about-carousel {
+    width: 100%;
     max-width: 350px;
+    height: auto;
+    aspect-ratio: 1 / 1; /* keeps it square */
+    overflow: hidden;
   }
 
-  .about-image {
-    height: 350px;
-    width: auto;
+.about-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
   }
+
+  .swiper-slide {
+  min-height: 250px;
+}
+
 }
