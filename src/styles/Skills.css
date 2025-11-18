@@ -4,7 +4,9 @@
 
 .skills-container {
   width: 100%;
+  /*
   background: #03001C;
+  */
   font-family: "Allerta Stencil", sans-serif;
 }
 
@@ -309,3 +311,8 @@
   filter: drop-shadow(0 0 6px rgba(182, 234, 218, 0.3));
 }
 
+@media (max-width: 768px) {
+  .skills-main-title{
+    font-size: 2.5rem;
+  }
+}

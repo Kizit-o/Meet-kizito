@@ -41,12 +41,11 @@ const projects = [
 
 const startupProjects = [
   {
-    title: "Zyra — Crowdfunding Platform",
+    title: "Zyra",
     description:
-      "Zyra is a donations-facilitation platform built for Africa. It helps individuals and communities raise funds for medical, educational, or social needs, while enabling donors worldwide to give in crypto or fiat with full transparency.",
+      "As the frontend developer on Zyra, I help bring the platform’s mission to life, a donations-facilitation system built for Africa, empowering individuals and communities to raise funds for medical, educational, and social needs. Zyra enables anyone around the world to donate in crypto or fiat with full transparency, and my work ensures that experience is fast, intuitive, and accessible.",
     image: Zyra,
-    techStack: ["React", "Node.js", "MongoDB", "Vite"],
-    github: "https://github.com/Chisomkizito/zyra",
+    techStack: ["React", "Next.js", "Vite"],
     live: "https://zyra.fund",
   },
 ];
@@ -154,11 +153,8 @@ function Projects() {
                 </div>
 
                 <div className="project-links">
-                  <a href={startup.github} target="_blank" rel="noreferrer">
-                    <FaGithub /> Code
-                  </a>
                   <a href={startup.live} target="_blank" rel="noreferrer">
-                    <FaExternalLinkAlt /> Live Demo
+                    <FaExternalLinkAlt /> Visit
                   </a>
                 </div>
               </div>

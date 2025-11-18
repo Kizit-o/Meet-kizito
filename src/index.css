@@ -1,9 +1,16 @@
 @import "tailwindcss";
 
+@import "@fontsource/allerta-stencil";
+
+* {
+  font-family: "Allerta Stencil", sans-serif;
+}
+
+
 body {
     margin: 0;
   padding: 0;
-  font-family: 'Archivo', sans-serif;
+  font-family: "Allerta Stencil", sans-serif !important;
   background: radial-gradient(
       circle at 50% 120%,       
       #0d5f5f 10%,               
@@ -16,6 +23,7 @@ body {
   background-size: cover;
   transition: background 9s ease-in-out;
    overflow-x: hidden;
+   overflow-y: scroll;
 }
 
 @media (max-width: 768px) {

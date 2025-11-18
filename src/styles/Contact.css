@@ -1,7 +1,9 @@
 /* CONTACT SECTION */
 .contact {
   padding: clamp(3rem, 10vw, 5rem) 1rem;
+  /*
   background: #03001c;
+  */
   text-align: center;
   color: #ffffff;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -109,7 +111,7 @@
   /* ✅ Horizontally center within parent */
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid #B6EADA;
+  border: 1.5px solid #B6EADA;
   padding: 3rem 2rem;
 }
 
@@ -177,5 +179,10 @@
 @media (max-width: 600px) {
   .social-links {
     flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+  .socials{
+    width: 100%;
   }
 }

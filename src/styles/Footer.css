@@ -1,10 +1,11 @@
 .footer {
   color: #e6f4f1;
+  background: #03001c;
   padding: 2rem 1rem;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-family: 'Plus Jakarta Sans', sans-serif;
-  height: 10vh;
+  height: 14vh;
 }
 
 .footer-container {

@@ -48,17 +48,27 @@ function Hero() {
           </p>
         </div>
 
-        {/* CTAs */}
-        <div className="hero-cta" data-aos="fade-up" data-aos-delay="400">
-          <button className="btn-primary" data-aos="slide-right" data-aos-delay="600">
-            <span>View My Work</span>
-            <FaArrowRight className="btn-icon" />
-          </button>
-          <button className="btn-secondary" data-aos="slide-left" data-aos-delay="700">
-            <FaEnvelope className="btn-icon" />
-            <span>Let's Talk</span>
-          </button>
-        </div>
+      {/* CTAs */}
+<div className="hero-cta" data-aos="fade-up" data-aos-delay="400">
+  <button 
+    className="btn-primary" 
+    data-aos="slide-right" 
+    data-aos-delay="600"
+    onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+  >
+    <span>View My Work</span>
+    <FaArrowRight className="btn-icon" />
+  </button>
+  <button 
+    className="btn-secondary" 
+    data-aos="slide-left" 
+    data-aos-delay="700"
+    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+  >
+    <FaEnvelope className="btn-icon" />
+    <span>Let's Talk</span>
+  </button>
+</div>
 
         {/* Tech Stack Badges */}
         <div className="hero-tech-stack" data-aos="fade-up" data-aos-delay="400">

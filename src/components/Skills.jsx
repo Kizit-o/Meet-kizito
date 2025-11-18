@@ -10,6 +10,7 @@ import {
 import { GiBearHead } from "react-icons/gi";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "../styles/Skills.css";
 
 // Story chapters data
 const storyChapters = [
@@ -106,19 +107,22 @@ const SkillCard = ({ skill, index }) => {
     return () => clearInterval(timer);
   }, [isVisible, skill.level]);
 
+  const dashOffset = isVisible
+    ? circumference * (1 - count / 100)
+    : circumference;
+
   return (
     <div
       ref={cardRef}
       data-aos="zoom-in"
       data-aos-delay={index * 100}
-      className="flex flex-col items-center text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 cursor-pointer transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,0,0,0.2)] hover:border-opacity-60"
+      className="skills-skill-card"
       style={{
-        "--tw-shadow-color": skill.color + "40",
         borderColor: skill.color + "60",
       }}
     >
-      <div className="relative w-[150px] h-[150px] rounded-full flex items-center justify-center mb-4">
-        <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" width="150" height="150">
+      <div className="skill-icon-wrapper">
+        <svg className="progress-ring" width="150" height="150">
           <circle
             cx="75"
             cy="75"
@@ -126,7 +130,7 @@ const SkillCard = ({ skill, index }) => {
             stroke="#1a1a1a"
             strokeWidth="6"
             fill="none"
-            className="opacity-20"
+            className="progress-ring-bg"
           />
           <circle
             cx="75"
@@ -136,22 +140,20 @@ const SkillCard = ({ skill, index }) => {
             strokeWidth="6"
             fill="none"
             strokeLinecap="round"
+            className="progress-ring-circle"
             style={{
               strokeDasharray: circumference,
-              strokeDashoffset: isVisible
-                ? circumference * (1 - count / 100)
-                : circumference,
-              transition: "stroke-dashoffset 0.6s ease-in-out",
+              strokeDashoffset: dashOffset,
             }}
           />
         </svg>
         <IconComponent
           size={48}
           color={skill.color}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="skills-skill-icon"
         />
       </div>
-      <h5 className="text-[#B6EADA] font-semibold text-lg mb-1">{skill.name}</h5>
+      <h5 className="skills-skill-name">{skill.name}</h5>
     </div>
   );
 };
@@ -173,15 +175,15 @@ const ChapterSection = ({ chapter, index }) => {
     <div
       data-aos="fade-up"
       data-aos-delay={index * 150}
-      className="relative w-full min-h-screen flex items-center justify-center px-6 py-20"
+      className="skills-chapter-section"
     >
       {index < storyChapters.length - 1 && (
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[2px] h-20 bg-gradient-to-b from-[#B6EADA] to-transparent opacity-30" />
+        <div className="skills-chapter-connecting-line" />
       )}
-      <div className="max-w-[80rem] w-full">
-        <div className="flex items-center gap-4 mb-6">
+      <div className="skills-chapter-content">
+        <div className="skills-chapter-header">
           <div
-            className="w-16 h-16 rounded-full flex items-center justify-center font-bold text-lg border-2"
+            className="skills-chapter-number"
             style={{
               borderColor: accentColor,
               color: accentColor,
@@ -190,34 +192,33 @@ const ChapterSection = ({ chapter, index }) => {
           >
             {index + 1}
           </div>
-          <div className="flex flex-col">
-            <p className="text-sm text-[#8FD6E1] uppercase tracking-wider">{chapterNum}</p>
-            <p className="text-sm text-[#8FD6E1] opacity-60">{period}</p>
+          <div className="skills-chapter-meta">
+            <p className="skills-chapter-label">{chapterNum}</p>
+            <p className="skills-chapter-period">{period}</p>
           </div>
         </div>
 
-        <h2 className="text-[#B6EADA] font-bold text-4xl md:text-5xl lg:text-[4rem] mb-8">{title}</h2>
-        <p className="text-[#8FD6E1] text-lg md:text-xl mb-12 max-w-3xl leading-relaxed">{narrative}</p>
+        <h2 className="skills-chapter-title">{title}</h2>
+        <p className="skills-chapter-narrative">{narrative}</p>
 
         {(struggle || breakthrough) && (
-          <div className="grid gap-6 mb-12 grid-cols-1 sm:grid-cols-2">
+          <div className="skills-chapter-insights">
             {struggle && (
-              <div className="bg-white/3 backdrop-blur-md border border-red-300/25 rounded-3xl p-6" data-aos="fade-right">
-                <h4 className="text-red-500 uppercase tracking-wider text-lg mb-3">The Struggle</h4>
-<p className="text-[#B6EADA] text-lg leading-7 font-light">{struggle}</p>
-
+              <div className="skills-insight-card skills-struggle-card" data-aos="fade-right">
+                <h4 className="skills-insight-title skills-struggle-title">The Struggle</h4>
+                <p className="skills-insight-text">{struggle}</p>
               </div>
             )}
             {breakthrough && (
-              <div className="bg-white/3 backdrop-blur-md border border-green-400/25 rounded-3xl p-6" data-aos="fade-left">
-                <h4 className="text-green-500 uppercase tracking-wider text-sm mb-2">The Breakthrough</h4>
-                <p className="text-[#B6EADA] text-base leading-6 font-thin">{breakthrough}</p>
+              <div className="skills-insight-card skills-breakthrough-card" data-aos="fade-left">
+                <h4 className="skills-insight-title skills-breakthrough-title">The Breakthrough</h4>
+                <p className="skills-insight-text">{breakthrough}</p>
               </div>
             )}
           </div>
         )}
 
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <div className="skills-grid">
           {skills.map((skill, i) => (
             <SkillCard key={i} skill={skill} index={i} />
           ))}
@@ -235,13 +236,11 @@ const Skills = () => {
   }, []);
 
   return (
-    <section className="w-full bg-[#03001C] font-sans">
+    <section className="skills-container">
       {/* Hero */}
-      <div className="flex flex-col items-center justify-center px-6 py-20" data-aos="fade-down">
-        <h1 className="text-[#B6EADA] text-5xl md:text-6xl lg:text-[5rem] font-bold text-center mb-4">
-          My Development Journey
-        </h1>
-        <p className="text-[#8FD6E1] text-lg md:text-xl text-center">
+      <div className="skills-hero" data-aos="fade-down">
+        <h1 className="skills-main-title">How I Started</h1>
+        <p className="skills-subtitle">
           A Story of Growth, Struggle, and Becoming
         </p>
       </div>
@@ -252,12 +251,10 @@ const Skills = () => {
       ))}
 
       {/* Closing Section */}
-      <div className="flex flex-col items-center justify-center px-6 py-20" data-aos="fade-up" data-aos-delay={300}>
-        <div className="text-center">
-          <h3 className="text-[#B6EADA] font-bold text-3xl md:text-4xl lg:text-[3rem] mb-6">
-            The Journey Continues
-          </h3>
-          <p className="text-[#8FD6E1] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8">
+      <div className="skills-closing" data-aos="fade-up" data-aos-delay={300}>
+        <div className="skills-closing-content">
+          <h3 className="skills-closing-title">The Journey Continues</h3>
+          <p className="skills-closing-text">
             Every line of code is a step forward. Every bug is a lesson. Every project is a story.
           </p>
         </div>

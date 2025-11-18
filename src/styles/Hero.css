@@ -511,6 +511,7 @@ p{
 
   .title-meet, .title-name {
     font-size: 5rem;
+    text-align: center;
   }
 
   .title-underline {
@@ -529,6 +530,7 @@ p{
 
   .highlight {
     max-width: 400px;
+    text-align: center;
   }
 
   .hero-intro {

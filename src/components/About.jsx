@@ -72,37 +72,27 @@ function About() {
           </h1>
 
           <p className="about-text">
-            <span data-aos="fade-down" data-aos-delay="100">I’m&nbsp;</span>
-            <strong data-aos="fade-down" data-aos-delay="200">K</strong>
-            <strong data-aos="fade-down" data-aos-delay="300">i</strong>
-            <strong data-aos="fade-down" data-aos-delay="400">z</strong>
-            <strong data-aos="fade-down" data-aos-delay="500">i</strong>
-            <strong data-aos="fade-down" data-aos-delay="600">t</strong>
-            <strong data-aos="fade-down" data-aos-delay="700">o</strong>
-            <span data-aos="fade-down" data-aos-delay="800">, a passionate </span>
-            <strong data-aos="fade-down" data-aos-delay="900">Frontend Developer</strong>
-            <span data-aos="fade-down" data-aos-delay="1000"> and </span>
-            <strong data-aos="fade-down" data-aos-delay="1100">
-              Electronics Engineer in the making
-            </strong>
-            <span data-aos="fade-down" data-aos-delay="1200">
-              {" "}from Lagos, Nigeria. My tech journey began at eleven when I held a
-              Nokia Asha and wondered, “How is this even possible?” That curiosity
-              still drives me today.
-            </span>
-            <span data-aos="fade-down" data-aos-delay="1300">
-              {" "}With over <strong>six years of self-directed learning</strong>, I’ve
-              grown from experimenting with circuits to building sleek, responsive,
-              and human-centered digital experiences.
-            </span>
-            <span data-aos="fade-down" data-aos-delay="1400">
-              {" "}I specialize in crafting modern interfaces using{" "}
-              <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>,{" "}
-              <strong>React</strong>, and <strong>AI-driven tools</strong> to turn ideas
-              into impactful products. Curiosity drives my code — innovation keeps me
-              building.
-            </span>
-          </p>
+  <span data-aos="fade-up" data-aos-delay="100">
+    I'm Kizito a <strong>Frontend Developer</strong> shaping clean, fast, and thoughtful experiences for the web.
+  </span>
+  
+  <span data-aos="fade-up" data-aos-delay="200">
+    What started as childhood curiosity grew into a <strong>six-years journey</strong> of building, breaking, and refining everything from circuits to interfaces.
+  </span>
+
+  <span data-aos="fade-up" data-aos-delay="300">
+    Today, I focus on creating modern, responsive, and human-centered frontends using <strong>React</strong>, <strong>JavaScript</strong>, and <strong>emerging AI tooling</strong>.
+  </span>
+
+  <span data-aos="fade-up" data-aos-delay="400">
+    I care about clarity, precision, and usability the kind of work that feels effortless on the surface but is <strong>deeply engineered</strong> underneath.
+  </span>
+
+  <span data-aos="fade-up" data-aos-delay="500">
+    Curiosity fuels my learning; craftsmanship guides my execution.
+  </span>
+</p>
+
         </div>
       </div>
     </section>

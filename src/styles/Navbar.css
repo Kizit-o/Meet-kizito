@@ -130,7 +130,7 @@
   transform: translateX(100%);
   transition: transform 0.3s ease;
  z-index: 999;
-  border-left: 4px solid rgba(145, 242, 249, 0.473);
+  border-left: 4px solid #0d5f5f;
 }
 
 .mobile-menu.open {
@@ -174,7 +174,7 @@
   }
 
   .navbar {
-    top: 0 !important;    /* mobile nav must stay at top */
+    top: 10px !important;    /* mobile nav must stay at top */
   }
 }
 
