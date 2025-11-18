@@ -117,9 +117,7 @@ const SkillCard = ({ skill, index }) => {
       data-aos="zoom-in"
       data-aos-delay={index * 100}
       className="skills-skill-card"
-      style={{
-        borderColor: skill.color + "60",
-      }}
+      style={{ borderColor: skill.color + "60" }}
     >
       <div className="skill-icon-wrapper">
         <svg className="progress-ring" width="150" height="150">
@@ -147,11 +145,7 @@ const SkillCard = ({ skill, index }) => {
             }}
           />
         </svg>
-        <IconComponent
-          size={48}
-          color={skill.color}
-          className="skills-skill-icon"
-        />
+        <IconComponent size={48} color={skill.color} className="skills-skill-icon" />
       </div>
       <h5 className="skills-skill-name">{skill.name}</h5>
     </div>
@@ -160,26 +154,11 @@ const SkillCard = ({ skill, index }) => {
 
 // Chapter Section
 const ChapterSection = ({ chapter, index }) => {
-  const {
-    chapter: chapterNum,
-    title,
-    period,
-    narrative,
-    struggle,
-    breakthrough,
-    skills,
-    accentColor,
-  } = chapter;
+  const { chapter: chapterNum, title, period, narrative, struggle, breakthrough, skills, accentColor } = chapter;
 
   return (
-    <div
-      data-aos="fade-up"
-      data-aos-delay={index * 150}
-      className="skills-chapter-section"
-    >
-      {index < storyChapters.length - 1 && (
-        <div className="skills-chapter-connecting-line" />
-      )}
+    <div data-aos="fade-up" data-aos-delay={index * 150} className="skills-chapter-section">
+      {index < storyChapters.length - 1 && <div className="skills-chapter-connecting-line" />}
       <div className="skills-chapter-content">
         <div className="skills-chapter-header">
           <div
@@ -237,20 +216,15 @@ const Skills = () => {
 
   return (
     <section className="skills-container">
-      {/* Hero */}
       <div className="skills-hero" data-aos="fade-down">
         <h1 className="skills-main-title">How I Started</h1>
-        <p className="skills-subtitle">
-          A Story of Growth, Struggle, and Becoming
-        </p>
+        <p className="skills-subtitle">A Story of Growth, Struggle, and Becoming</p>
       </div>
 
-      {/* Story Chapters */}
       {storyChapters.map((chapter, index) => (
         <ChapterSection key={chapter.id} chapter={chapter} index={index} />
       ))}
 
-      {/* Closing Section */}
       <div className="skills-closing" data-aos="fade-up" data-aos-delay={300}>
         <div className="skills-closing-content">
           <h3 className="skills-closing-title">The Journey Continues</h3>

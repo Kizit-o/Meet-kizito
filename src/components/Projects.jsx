@@ -22,7 +22,7 @@ const projects = [
   {
     title: "Prompto",
     description:
-      "AI-powered web application that transforms raw user inputs into expertly crafted prompts for large language models (LLMs).",
+      "AI-powered web application that transforms raw user inputs into expertly crafted prompts for LLMs.",
     image: Prompto,
     techStack: ["React", "Open AI", "JavaScript"],
     github: "https://github.com/Chisomkizito/crypto-dashboard",
@@ -31,7 +31,7 @@ const projects = [
   {
     title: "KZT-NFTs",
     description:
-      "An interactive music gallery that connects users with trending songs and custom playlists.",
+      "An interactive music gallery that connects users with trending songs and playlists.",
     image: NFT,
     techStack: ["React", "Tailwind", "Firebase"],
     github: "https://github.com/Chisomkizito/music-showcase",
@@ -39,22 +39,24 @@ const projects = [
   },
 ];
 
+// Startup section — separate block for bigger writeup
 const startupProjects = [
   {
     title: "Zyra",
     description:
-      "As the frontend developer on Zyra, I help bring the platform’s mission to life, a donations-facilitation system built for Africa, empowering individuals and communities to raise funds for medical, educational, and social needs. Zyra enables anyone around the world to donate in crypto or fiat with full transparency, and my work ensures that experience is fast, intuitive, and accessible.",
+      "As the frontend developer on Zyra, I help build a donations-facilitation platform built for Africa—empowering communities to raise funds for medical, educational, and social needs. Fully supports crypto + fiat donations.",
     image: Zyra,
     techStack: ["React", "Next.js", "Vite"],
     live: "https://zyra.fund",
   },
 ];
 
+// Certification highlight
 const featuredProject = {
   title: "Testimonial",
   role: "Developer",
   description:
-    "A completion of Legacy Responsive Web design V8 in freecodecamp.org",
+    "A completion of Legacy Responsive Web Design V8 on freeCodeCamp.",
   image: certificate,
   techStack: ["HTML", "CSS"],
   github: "https://github.com/Chisomkizito/enterprise-project",
@@ -62,19 +64,21 @@ const featuredProject = {
 };
 
 function Projects() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [hoveredCard, setHoveredCard] = useState(null); // Hover effect control
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true, easing: "ease-out" });
+    AOS.init({ duration: 800, once: true, easing: "ease-out" }); // Smooth scroll animations
   }, []);
 
   return (
     <section id="projects" className="projects">
       <div className="projects-container">
+        {/* Main Title */}
         <h2 className="projects-title" data-aos="fade-up" data-aos-delay="200">
           My Projects
         </h2>
 
+        {/* Regular Projects Grid */}
         <div className="projects-grid">
           {projects.map((project, index) => (
             <div
@@ -97,6 +101,7 @@ function Projects() {
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
 
+                {/* Tech badges */}
                 <div className="project-tech">
                   {project.techStack.map((tech, i) => (
                     <span key={i} className="tech-badge">
@@ -105,6 +110,7 @@ function Projects() {
                   ))}
                 </div>
 
+                {/* Links */}
                 <div className="project-links">
                   <a href={project.github} target="_blank" rel="noreferrer">
                     <FaGithub /> Code
@@ -118,10 +124,15 @@ function Projects() {
           ))}
         </div>
 
-        {/* Startup Project Section */}
-        <h2 className="projects-title" style={{ marginTop: "4rem" }} data-aos="fade-up">
+        {/* Startup Section */}
+        <h2
+          className="projects-title"
+          style={{ marginTop: "4rem" }}
+          data-aos="fade-up"
+        >
           Startup Project
         </h2>
+
         <div className="startup-projects-container">
           {startupProjects.map((startup, index) => (
             <div
@@ -162,10 +173,15 @@ function Projects() {
           ))}
         </div>
 
-        {/* Certification Section */}
-        <h2 className="projects-title" style={{ marginTop: "4rem" }} data-aos="fade-up">
+        {/* CERTIFICATION SECTION */}
+        <h2
+          className="projects-title"
+          style={{ marginTop: "4rem" }}
+          data-aos="fade-up"
+        >
           Certification
         </h2>
+
         <div className="featured-card" data-aos="fade-up">
           <div className="featured-image-wrapper">
             <img
@@ -181,7 +197,9 @@ function Projects() {
 
             <div className="testimonial-rating">{"★".repeat(5)}</div>
 
-            <p className="featured-description">{featuredProject.description}</p>
+            <p className="featured-description">
+              {featuredProject.description}
+            </p>
 
             <div className="testimonial-badge">
               <span>✓</span> Verified by freeCodeCamp
@@ -199,7 +217,14 @@ function Projects() {
               <a href={featuredProject.github} target="_blank" rel="noreferrer">
                 <FaGithub /> View Projects
               </a>
-              <a href={featuredProject.live} target="https://www.freecodecamp.org/certification/kizztech/responsive-web-design" rel="noreferrer">
+
+              <a
+                href={
+                  "https://www.freecodecamp.org/certification/kizztech/responsive-web-design"
+                }
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaExternalLinkAlt /> View Certificate
               </a>
             </div>

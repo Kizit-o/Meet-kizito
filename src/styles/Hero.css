@@ -1,4 +1,3 @@
-
 .hero {
   position: relative;
   display: flex;
@@ -6,20 +5,15 @@
   justify-content: center;
   min-height: 100vh;
   padding: 6rem 2rem 4rem;
- 
   overflow: hidden;
   margin-top: 5rem;
 }
 
-
-
-/* Content Container */
 .hero-content {
   position: relative;
   z-index: 2;
   text-align: center;
 }
-
 
 .hero-title-wrapper {
   margin-bottom: 1rem;
@@ -31,10 +25,10 @@
   font-weight: bold;
   line-height: 1.1;
   margin: 0;
-  display: inline-flex; 
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem; 
-  flex-wrap: wrap; 
+  gap: 0.6rem;
+  flex-wrap: wrap;
   text-align: center;
 }
 
@@ -49,8 +43,6 @@
   letter-spacing: 0.15em;
 }
 
-
-/* Animated Underline */
 .title-underline {
   width: 0;
   height: 4px;
@@ -64,7 +56,7 @@
   to { width: 800px; }
 }
 
-p{
+p {
   font-family: "Allerta Stencil", sans-serif;
   font-weight: bold;
 }
@@ -111,6 +103,7 @@ p{
   margin-bottom: 4rem;
   flex-wrap: wrap;
 }
+
 .btn-primary,
 .btn-secondary {
   display: inline-flex;
@@ -121,7 +114,7 @@ p{
   font-size: 1rem;
   font-family: 'Allerta Stencil', sans-serif;
   font-weight: 600;
-  border-radius: 50px; /* 🔵 More rounded, pill-like shape */
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.35s ease;
   border: none;
@@ -130,9 +123,6 @@ p{
   letter-spacing: 0.5px;
 }
 
-/* ===========================
-   🔹 PRIMARY BUTTON
-   =========================== */
 .btn-primary {
   background: linear-gradient(135deg, #03001c, #0056b3);
   color: #fff;
@@ -146,12 +136,7 @@ p{
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.25),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
   transition: left 0.6s ease;
 }
 
@@ -164,9 +149,6 @@ p{
   box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
 }
 
-/* ===========================
-   🔹 SECONDARY BUTTON
-   =========================== */
 .btn-secondary {
   background: transparent;
   color: #b6eada;
@@ -180,9 +162,6 @@ p{
   box-shadow: 0 8px 25px rgba(182, 234, 218, 0.4);
 }
 
-/* ===========================
-   🔹 ICON (Inside Button)
-   =========================== */
 .btn-icon {
   font-size: 1.1rem;
   transition: transform 0.3s ease;
@@ -192,7 +171,6 @@ p{
 .btn-secondary:hover .btn-icon {
   transform: translateX(5px);
 }
-
 
 .hero-tech-stack {
   margin-bottom: 3rem;
@@ -253,7 +231,6 @@ p{
   transform: scale(1.1);
 }
 
-
 .scroll-indicator {
   display: flex;
   flex-direction: column;
@@ -282,333 +259,88 @@ p{
   50% { transform: translateY(10px); }
 }
 
-/* RESPONSIVE DESIGN */
+/* Responsive */
 
-/* Extra Small Phones (320px - 374px) */
 @media (max-width: 374px) {
-  .hero {
-    padding: 4rem 1rem 2.5rem;
-  }
-
-  .hero-title {
-    gap: 0.2rem;
-  }
-
-  .title-meet, .title-name {
-    font-size: 2rem;
-  }
-
-  .title-underline {
-    margin-top: 0.75rem;
-    max-width: 200px;
-  }
-
-  .hero-role {
-    font-size: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  .hero-tagline {
-    font-size: 0.85rem;
-  }
-
-  .highlight {
-    max-width: 250px;
-  }
-
-  .hero-intro {
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-cta {
-    flex-direction: column;
-    gap: 0.875rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9rem;
-  }
-
-  .tech-badges {
-    gap: 0.5rem;
-    margin-bottom: 0.1rem;
-  }
-
-  .tech-badge {
-    padding: 0.5rem 0.625rem;
-  }
-
-  .tech-badge svg {
-    font-size: 1.125rem;
-  }
-
-  .tech-badge span {
-    font-size: 0.6rem;
-  }
-
-  .scroll-indicator {
-    margin-top: 1.5rem;
-  }
+  .hero { padding: 4rem 1rem 2.5rem; }
+  .hero-title { gap: 0.2rem; }
+  .title-meet, .title-name { font-size: 2rem; }
+  .title-underline { margin-top: 0.75rem; max-width: 200px; }
+  .hero-role { font-size: 1rem; margin-top: 1.5rem; }
+  .hero-tagline { font-size: 0.85rem; }
+  .highlight { max-width: 250px; }
+  .hero-intro { margin-bottom: 1.5rem; }
+  .hero-cta { flex-direction: column; gap: 0.875rem; margin-bottom: 2.5rem; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 280px; justify-content: center; padding: 0.875rem 1.5rem; font-size: 0.9rem; }
+  .tech-badges { gap: 0.5rem; margin-bottom: 0.1rem; }
+  .tech-badge { padding: 0.5rem 0.625rem; }
+  .tech-badge svg { font-size: 1.125rem; }
+  .tech-badge span { font-size: 0.6rem; }
+  .scroll-indicator { margin-top: 1.5rem; }
 }
 
-/* Small Phones (375px - 479px) */
 @media (min-width: 375px) and (max-width: 479px) {
-  .hero {
-    padding: 4.5rem 1.25rem 2.75rem;
-  }
-
-  .hero-title {
-    gap: 0.25rem;
-  }
-
-  .title-meet, .title-name {
-    font-size: 2.25rem;
-  }
-
-  .title-underline {
-    margin-top: 0.875rem;
-    max-width: 210px;
-  }
-
-  .hero-role {
-    font-size: 1.0625rem;
-    margin-top: 1.75rem;
-  }
-
-  .hero-tagline {
-    font-size: 0.875rem;
-  }
-
-  .highlight {
-    max-width: 270px;
-  }
-
-  .hero-intro {
-    margin-bottom: 1.75rem;
-  }
-
-  .hero-cta {
-    flex-direction: column;
-    gap: 0.9rem;
-    margin-bottom: 2.75rem;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: 290px;
-    justify-content: center;
-  }
-
-  .tech-badges {
-    gap: 0.625rem;
-    margin-bottom: 0.1rem;
-  }
-
-  .tech-badge {
-    padding: 0.5rem 0.7rem;
-  }
-
-  .tech-badge svg {
-    font-size: 1.2rem;
-  }
-
-  .tech-badge span {
-    font-size: 0.625rem;
-  }
-
-  .scroll-indicator {
-    margin-top: 1.75rem;
-  }
+  .hero { padding: 4.5rem 1.25rem 2.75rem; }
+  .hero-title { gap: 0.25rem; }
+  .title-meet, .title-name { font-size: 2.25rem; }
+  .title-underline { margin-top: 0.875rem; max-width: 210px; }
+  .hero-role { font-size: 1.0625rem; margin-top: 1.75rem; }
+  .hero-tagline { font-size: 0.875rem; }
+  .highlight { max-width: 270px; }
+  .hero-intro { margin-bottom: 1.75rem; }
+  .hero-cta { flex-direction: column; gap: 0.9rem; margin-bottom: 2.75rem; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 290px; justify-content: center; }
+  .tech-badges { gap: 0.625rem; margin-bottom: 0.1rem; }
+  .tech-badge { padding: 0.5rem 0.7rem; }
+  .tech-badge svg { font-size: 1.2rem; }
+  .tech-badge span { font-size: 0.625rem; }
+  .scroll-indicator { margin-top: 1.75rem; }
 }
 
-/* Standard Phones (480px - 767px) */
 @media (min-width: 480px) and (max-width: 767px) {
-  .hero {
-    padding: 5rem 1.5rem 3rem;
-  }
-
-  .hero-title {
-    gap: 0.25rem;
-  }
-
-  .title-meet, .title-name {
-    font-size: 3rem;
-  }
-
-  .title-underline {
-    margin-top: 1rem;
-    max-width: 220px;
-  }
-
-  .hero-role {
-    font-size: 1.125rem;
-    margin-top: 2rem;
-  }
-
-  .hero-tagline {
-    font-size: 0.9rem;
-  }
-
-  .highlight {
-    max-width: 300px;
-  }
-
-  .hero-intro {
-    margin-bottom: 2rem;
-  }
-
-  .hero-cta {
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
-  }
-
-  .tech-badges {
-    gap: 0.75rem;
-    margin-bottom: 0.1rem;
-  }
-
-  .tech-badge {
-    padding: 0.5rem 0.75rem;
-  }
-
-  .tech-badge svg {
-    font-size: 1.25rem;
-  }
-
-  .tech-badge span {
-    font-size: 0.65rem;
-  }
-
-  .scroll-indicator {
-    margin-top: 2rem;
-  }
+  .hero { padding: 5rem 1.5rem 3rem; }
+  .hero-title { gap: 0.25rem; }
+  .title-meet, .title-name { font-size: 3rem; }
+  .title-underline { margin-top: 1rem; max-width: 220px; }
+  .hero-role { font-size: 1.125rem; margin-top: 2rem; }
+  .hero-tagline { font-size: 0.9rem; }
+  .highlight { max-width: 300px; }
+  .hero-intro { margin-bottom: 2rem; }
+  .hero-cta { flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
+  .tech-badges { gap: 0.75rem; margin-bottom: 0.1rem; }
+  .tech-badge { padding: 0.5rem 0.75rem; }
+  .tech-badge svg { font-size: 1.25rem; }
+  .tech-badge span { font-size: 0.65rem; }
+  .scroll-indicator { margin-top: 2rem; }
 }
 
-/* Large Phones / Small Tablets (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .hero {
-    padding: 6rem 2rem 4rem;
-  }
-
-  .hero-title {
-    gap: 0.5rem;
-  }
-
-  .title-meet, .title-name {
-    font-size: 5rem;
-    text-align: center;
-  }
-
-  .title-underline {
-    margin-top: 1.25rem;
-    max-width: 40%;
-  }
-
-  .hero-role {
-    font-size: 1.25rem;
-    margin-top: 2.5rem;
-  }
-
-  .hero-tagline {
-    font-size: 1rem;
-  }
-
-  .highlight {
-    max-width: 400px;
-    text-align: center;
-  }
-
-  .hero-intro {
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-cta {
-    flex-direction: row;
-    gap: 1.5rem;
-    margin-bottom: 3.5rem;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: auto;
-    max-width: none;
-  }
-
-  .tech-badges {
-    gap: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .tech-badge {
-    padding: 0.875rem 1rem;
-  }
-
-  .tech-badge svg {
-    font-size: 1.75rem;
-  }
-
-  .tech-badge span {
-    font-size: 0.75rem;
-  }
-
-  .scroll-indicator {
-    margin-top: 2.5rem;
-  }
+  .hero { padding: 6rem 2rem 4rem; }
+  .hero-title { gap: 0.5rem; }
+  .title-meet, .title-name { font-size: 5rem; text-align: center; }
+  .title-underline { margin-top: 1.25rem; max-width: 40%; }
+  .hero-role { font-size: 1.25rem; margin-top: 2.5rem; }
+  .hero-tagline { font-size: 1rem; }
+  .highlight { max-width: 400px; text-align: center; }
+  .hero-intro { margin-bottom: 2.5rem; }
+  .hero-cta { flex-direction: row; gap: 1.5rem; margin-bottom: 3.5rem; }
+  .btn-primary, .btn-secondary { width: auto; max-width: none; }
+  .tech-badges { gap: 1.25rem; margin-bottom: 0.5rem; }
+  .tech-badge { padding: 0.875rem 1rem; }
+  .tech-badge svg { font-size: 1.75rem; }
+  .tech-badge span { font-size: 0.75rem; }
+  .scroll-indicator { margin-top: 2.5rem; }
 }
 
-/* Tablets (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .hero {
-    padding: 7rem 3rem 5rem;
-  }
-
-  .title-meet, .title-name {
-    font-size: 3.5rem;
-  }
-
-  .title-underline {
-    max-width: 45%;
-  }
-
-  .hero-role {
-    font-size: 1.375rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.0625rem;
-  }
-
-  .highlight {
-    max-width: 450px;
-  }
-
-  .tech-badge {
-    padding: 1rem 1.125rem;
-  }
-
-  .tech-badge svg {
-    font-size: 2rem;
-  }
-
-  .tech-badge span {
-    font-size: 0.8rem;
-  }
+  .hero { padding: 7rem 3rem 5rem; }
+  .title-meet, .title-name { font-size: 3.5rem; }
+  .title-underline { max-width: 45%; }
+  .hero-role { font-size: 1.375rem; }
+  .hero-tagline { font-size: 1.0625rem; }
+  .highlight { max-width: 450px; }
+  .tech-badge { padding: 1rem 1.125rem; }
+  .tech-badge svg { font-size: 2rem; }
+  .tech-badge span { font-size: 0.8rem; }
 }
-
-
-

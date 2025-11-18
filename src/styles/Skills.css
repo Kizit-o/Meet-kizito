@@ -1,18 +1,7 @@
-/* ============================
-   SKILLS SECTION - STORY MODE
-   ============================ */
-
 .skills-container {
   width: 100%;
-  /*
-  background: #03001C;
-  */
   font-family: "Allerta Stencil", sans-serif;
 }
-
-/* ============================
-   HERO SECTION
-   ============================ */
 
 .skills-hero {
   width: 100%;
@@ -39,10 +28,6 @@
   text-align: center;
 }
 
-/* ============================
-   CHAPTER SECTIONS
-   ============================ */
-
 .skills-chapter-section {
   position: relative;
   width: 100%;
@@ -53,7 +38,6 @@
   padding: 5rem 1.5rem;
 }
 
-/* Connecting Line Between Chapters */
 .skills-chapter-connecting-line {
   position: absolute;
   bottom: 0;
@@ -65,15 +49,10 @@
   opacity: 0.3;
 }
 
-/* Chapter Content Container */
 .skills-chapter-content {
   max-width: 80rem;
   width: 100%;
 }
-
-/* ============================
-   CHAPTER HEADER
-   ============================ */
 
 .skills-chapter-header {
   display: flex;
@@ -114,10 +93,6 @@
   margin: 0;
 }
 
-/* ============================
-   CHAPTER TITLE & NARRATIVE
-   ============================ */
-
 .skills-chapter-title {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: bold;
@@ -134,10 +109,6 @@
   margin-bottom: 3rem;
   max-width: 48rem;
 }
-
-/* ============================
-   INSIGHTS (STRUGGLE & BREAKTHROUGH)
-   ============================ */
 
 .skills-chapter-insights {
   display: grid;
@@ -186,10 +157,6 @@
   font-size: 1rem;
 }
 
-/* ============================
-   SKILLS GRID
-   ============================ */
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -227,10 +194,6 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-
-/* ============================
-   CLOSING SECTION
-   ============================ */
 
 .skills-closing {
   width: 100%;
@@ -277,8 +240,6 @@
   box-shadow: 0 0 30px rgba(182, 234, 218, 0.5);
 }
 
-/* Add these to Skills.css */
-
 .skill-icon-wrapper {
   width: 150px;
   height: 150px;
@@ -312,7 +273,7 @@
 }
 
 @media (max-width: 768px) {
-  .skills-main-title{
+  .skills-main-title {
     font-size: 2.5rem;
   }
 }

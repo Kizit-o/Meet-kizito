@@ -1,36 +1,31 @@
 @import "tailwindcss";
-
 @import "@fontsource/allerta-stencil";
 
 * {
   font-family: "Allerta Stencil", sans-serif;
 }
 
-
 body {
-    margin: 0;
+  margin: 0;
   padding: 0;
   font-family: "Allerta Stencil", sans-serif !important;
   background: radial-gradient(
-      circle at 50% 120%,       
-      #0d5f5f 10%,               
-      #0d5f5f 25%,              
-      #0f113a 50%,              
-      #000000 100%
+    circle at 50% 120%,
+    #0d5f5f 10%,
+    #0d5f5f 25%,
+    #0f113a 50%,
+    #000000 100%
   );
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   transition: background 9s ease-in-out;
-   overflow-x: hidden;
-   overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 @media (max-width: 768px) {
- body{
-  overflow-x: scroll;
- }
+  body {
+    overflow-x: scroll;
+  }
 }
-
-
-

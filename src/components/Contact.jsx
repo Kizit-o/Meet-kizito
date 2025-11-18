@@ -1,16 +1,19 @@
-import "@fontsource/allerta-stencil";
+import "@fontsource/allerta-stencil"; // Section font
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaGlobe } from "react-icons/fa";
-import "../styles/Contact.css";
+import "../styles/Contact.css"; // Component styles
 
 function Contact() {
   return (
     <section id="contact" className="contact">
 
+      {/* Social block – external profiles */}
       <div className="socials" data-aos="fade-up" data-aos-delay="200">
         <h2>Connect With Me</h2>
+
         <p className="social-text">
           Let’s collaborate, share ideas, or just chat about development and creativity!
         </p>
+
         <div className="social-links">
           <a
             href="https://github.com/yourhandle"
@@ -43,14 +46,21 @@ function Contact() {
             <FaEnvelope /> Email
           </a>
 
-          <a href="https://yourportfolio.com" target="_blank" rel="noreferrer" className="web">
+          <a
+            href="https://yourportfolio.com"
+            target="_blank"
+            rel="noreferrer"
+            className="web"
+          >
             <FaGlobe /> Portfolio
           </a>
         </div>
       </div>
-      
+
+      {/* Contact form header */}
       <h2 data-aos="fade-up">Get In Touch</h2>
 
+      {/* Contact form – simple client-side validation */}
       <form data-aos="fade-up" data-aos-delay="100">
         <div className="form-group">
           <input type="text" placeholder="Your Name" required />
@@ -67,7 +77,6 @@ function Contact() {
         <button type="submit">Send Message</button>
       </form>
 
-      
     </section>
   );
 }

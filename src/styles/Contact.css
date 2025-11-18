@@ -1,19 +1,15 @@
-/* CONTACT SECTION */
+/* CONTACT */
 .contact {
   padding: clamp(3rem, 10vw, 5rem) 1rem;
-  /*
-  background: #03001c;
-  */
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  
 }
 
 .contact h2 {
   font-family: "Allerta Stencil", sans-serif;
-    color: #B6EADA;
-    font-weight: bold;
+  color: #B6EADA;
+  font-weight: bold;
   font-size: clamp(2rem, 7vw, 4rem);
   margin-bottom: 3rem;
   letter-spacing: 1px;
@@ -46,13 +42,14 @@
   transform: translateY(-2px);
 }
 
+/* BUTTON */
 .contact button {
   align-self: center;
   background: linear-gradient(135deg, #b6eada, #89d3c3);
   color: #0a0826;
   padding: 1rem 2.8rem;
   border: none;
-  border-radius: 50px; /* same pill shape */
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.35s ease;
   font-weight: 600;
@@ -71,12 +68,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.25),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
   transition: left 0.6s ease;
 }
 
@@ -90,31 +82,19 @@
   box-shadow: 0 8px 25px rgba(182, 234, 218, 0.4);
 }
 
-
 /* SOCIALS */
 .socials {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin: 4rem auto;
   width: 70%;
   background: rgba(255, 255, 255, 0.05);
-  padding: 3rem 1rem;
+  border: 1.5px solid #B6EADA;
   border-radius: 16px;
+  padding: 3rem 2rem;
   box-shadow: 0 0 20px rgba(182, 234, 218, 0.05);
-  transition: all 0.3s ease;
-
-  /* ✅ Centering */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-
-  /* ✅ Horizontally center within parent */
-  margin-left: auto;
-  margin-right: auto;
-  border: 1.5px solid #B6EADA;
-  padding: 3rem 2rem;
 }
-
 
 .socials h2 {
   font-size: clamp(1.8rem, 5vw, 2.2rem);
@@ -154,35 +134,20 @@
   color: #03001c;
 }
 
-/* Brand-specific hover colors */
-.social-links a.github:hover {
-  background: #ffffff;
-}
+.social-links a.github:hover { background: #ffffff; }
+.social-links a.linkedin:hover { background: #0077b5; }
+.social-links a.twitter:hover { background: #1da1f2; }
+.social-links a.email:hover { background: #d44638; }
+.social-links a.web:hover { background: #89d3c3; }
 
-.social-links a.linkedin:hover {
-  background: #0077b5;
-}
-
-.social-links a.twitter:hover {
-  background: #1da1f2;
-}
-
-.social-links a.email:hover {
-  background: #d44638;
-}
-
-.social-links a.web:hover {
-  background: #89d3c3;
-}
-
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 600px) {
   .social-links {
     flex-direction: column;
     width: 100%;
     text-align: center;
   }
-  .socials{
+  .socials {
     width: 100%;
   }
 }
