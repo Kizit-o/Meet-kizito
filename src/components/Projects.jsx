@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import "@fontsource/allerta-stencil";
-import Projimg1 from "../assets/proj1.png";
+import Projimg1 from "../assets/Port.png";
 import NFT from "../assets/NFT.png";
 import Prompto from "../assets/Prompto.png";
 import Zyra from "../assets/Zyra.jpg";
@@ -31,7 +31,7 @@ const projects = [
   {
     title: "KZT-NFTs",
     description:
-      "An interactive music gallery that connects users with trending songs and playlists.",
+      "A marketplace that integrates directly with OpenSea’s infrastructure to list, manage, and trade NFTs, providing users with a streamlined interface for discovering and interacting with verified digital assets.",
     image: NFT,
     techStack: ["React", "Tailwind", "Firebase"],
     github: "https://github.com/Chisomkizito/music-showcase",
