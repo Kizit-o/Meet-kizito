@@ -25,16 +25,16 @@ const projects = [
       "AI-powered web application that transforms raw user inputs into expertly crafted prompts for LLMs.",
     image: Prompto,
     techStack: ["React", "Open AI", "JavaScript"],
-    github: "https://github.com/Chisomkizito/crypto-dashboard",
+    github: "https://github.com/Kizit-o/Prompto",
     live: "#",
   },
   {
     title: "KZT-NFTs",
     description:
-      "A marketplace that integrates directly with OpenSea’s infrastructure to list, manage, and trade NFTs, providing users with a streamlined interface for discovering and interacting with verified digital assets.",
+      "A marketplace that treats NFTs as exhibited artwork, not just listings—powered by OpenSea’s real NFT data.",
     image: NFT,
     techStack: ["React", "Tailwind", "Firebase"],
-    github: "https://github.com/Chisomkizito/music-showcase",
+    github: "https://github.com/Kizit-o/KZT-NFTs",
     live: "#",
   },
 ];
