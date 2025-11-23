@@ -1,12 +1,14 @@
 import "@fontsource/allerta-stencil"; // Section font
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaGlobe } from "react-icons/fa";
-import "../styles/Contact.css"; // Component styles
+import { FaGithub, FaLinkedin, FaEnvelope, FaTelegram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+import "../styles/Contact.css";
 
 function Contact() {
   return (
     <section id="contact" className="contact">
 
-      {/* Social block – external profiles */}
+      {/* Social block */}
       <div className="socials" data-aos="fade-up" data-aos-delay="200">
         <h2>Connect With Me</h2>
 
@@ -16,7 +18,7 @@ function Contact() {
 
         <div className="social-links">
           <a
-            href="https://github.com/yourhandle"
+            href="https://github.com/Kizit-o"
             target="_blank"
             rel="noreferrer"
             className="github"
@@ -24,41 +26,33 @@ function Contact() {
             <FaGithub /> GitHub
           </a>
 
-          <a
-            href="https://linkedin.com/in/yourhandle"
-            target="_blank"
-            rel="noreferrer"
-            className="linkedin"
-          >
-            <FaLinkedin /> LinkedIn
-          </a>
 
           <a
-            href="https://twitter.com/yourhandle"
+            href="https://x.com/KIZZTECH"
             target="_blank"
             rel="noreferrer"
             className="twitter"
           >
-            <FaTwitter /> Twitter
+            <FaXTwitter /> X(Twitter)
           </a>
 
-          <a href="mailto:youremail@example.com" className="email">
+          <a href="ngerechisom55@gmail.com" className="email">
             <FaEnvelope /> Email
           </a>
 
           <a
-            href="https://yourportfolio.com"
+            href="https://t.me/Kizit_0"
             target="_blank"
             rel="noreferrer"
             className="web"
           >
-            <FaGlobe /> Portfolio
+            <FaTelegram /> Telegram
           </a>
         </div>
       </div>
 
       {/* Contact form header */}
-      <h2 data-aos="fade-up">Get In Touch</h2>
+      <h2 data-aos="fade-up">Let's Talk..</h2>
 
       {/* Contact form – simple client-side validation */}
       <form data-aos="fade-up" data-aos-delay="100">

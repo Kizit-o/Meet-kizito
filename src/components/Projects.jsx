@@ -31,7 +31,7 @@ const projects = [
   {
     title: "KZT-NFTs",
     description:
-      "A marketplace that treats NFTs as exhibited artwork, not just listings—powered by OpenSea’s real NFT data.",
+      "A marketplace that treats NFTs as exhibited artwork, not just listings, powered by OpenSea’s real NFT data.",
     image: NFT,
     techStack: ["React", "Tailwind", "Firebase"],
     github: "https://github.com/Kizit-o/KZT-NFTs",
@@ -39,26 +39,23 @@ const projects = [
   },
 ];
 
-// Startup section — separate block for bigger writeup
+
 const startupProjects = [
   {
     title: "Zyra",
     description:
-      "As the frontend developer on Zyra, I help build a donations-facilitation platform built for Africa—empowering communities to raise funds for medical, educational, and social needs. Fully supports crypto + fiat donations.",
+      "As the frontend developer on Zyra, I help build a donations-facilitation platform built for Africa empowering communities to raise funds for medical, educational, and social needs. Fully supports crypto + fiat donations.",
     image: Zyra,
-    techStack: ["React", "Next.js", "Vite"],
+    techStack: ["React", "Tailwind", "Next.js", "Supabase"],
     live: "https://zyra.fund",
   },
 ];
 
 // Certification highlight
 const featuredProject = {
-  title: "Testimonial",
-  role: "Developer",
   description:
     "A completion of Legacy Responsive Web Design V8 on freeCodeCamp.",
   image: certificate,
-  techStack: ["HTML", "CSS"],
   github: "https://github.com/Chisomkizito/enterprise-project",
   live: "#",
 };
@@ -67,7 +64,7 @@ function Projects() {
   const [hoveredCard, setHoveredCard] = useState(null); // Hover effect control
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true, easing: "ease-out" }); // Smooth scroll animations
+    AOS.init({ duration: 800, once: true, easing: "ease-out" }); 
   }, []);
 
   return (
@@ -195,7 +192,7 @@ function Projects() {
             <h3 className="featured-title">{featuredProject.title}</h3>
             <p className="featured-role">{featuredProject.role}</p>
 
-            <div className="testimonial-rating">{"★".repeat(5)}</div>
+            <div className="testimonial-rating">{"★".repeat(4)}</div>
 
             <p className="featured-description">
               {featuredProject.description}
@@ -205,18 +202,9 @@ function Projects() {
               <span>✓</span> Verified by freeCodeCamp
             </div>
 
-            <div className="project-tech">
-              {featuredProject.techStack.map((tech, i) => (
-                <span key={i} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
-
+         
             <div className="project-links">
-              <a href={featuredProject.github} target="_blank" rel="noreferrer">
-                <FaGithub /> View Projects
-              </a>
+              
 
               <a
                 href={

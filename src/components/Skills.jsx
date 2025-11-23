@@ -20,7 +20,7 @@ const storyChapters = [
     title: "The Building Blocks",
     period: "2020-2021",
     narrative:
-      "The year I stumbled into web development — clueless, curious, and obsessed.",
+      "The year I stumbled into web development, clueless, curious, and obsessed.",
     struggle: "Everything looked like hieroglyphics. Confusion ruled; progress crawled.",
     breakthrough:
       "I didn't quit. Every tutorial, every failed line of code sharpened my focus.",
@@ -36,10 +36,10 @@ const storyChapters = [
     title: "The Framework Evolution",
     period: "2023-2024",
     narrative:
-      "The shift from static pages to dynamic experiences — I met React, GitHub, and sleepless nights.",
+      "The shift from static pages to dynamic experiences, I met React, GitHub, and sleepless nights.",
     struggle: "Git felt like a foreign language. Imposter syndrome? Daily visitor.",
     breakthrough:
-      "My first real projects shipped. Confidence followed — not overnight, but commit by commit.",
+      "My first real projects shipped. Confidence followed, not overnight, but commit by commit.",
     skills: [
       { name: "React", icon: FaReact, color: "#61DAFB", level: 88 },
       { name: "GitHub", icon: FaGithub, color: "#fff", level: 85 },
@@ -53,7 +53,7 @@ const storyChapters = [
     title: "The Craftsman",
     period: "2024-Present",
     narrative:
-      "Now I don't just build interfaces — I craft experiences that feel alive.",
+      "Now I don't just build interfaces, I craft experiences that feel alive.",
     struggle:
       "Tech stacks multiplied faster than I could learn them. Burnout lurked behind deadlines.",
     breakthrough:

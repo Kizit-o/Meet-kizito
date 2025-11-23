@@ -172,7 +172,7 @@
 /* Featured image */
 .featured-image-wrapper {
   width: 80%;
-  height: 500px;
+  height: 390px;
   margin: 2.5rem auto 1.5rem;
   overflow: hidden;
   border: 3px solid rgba(182,234,218,0.3);
@@ -181,7 +181,7 @@
 }
 
 .featured-card:hover .featured-image-wrapper {
-  transform: scale(1.06);
+  transform: scale(1.02);
 }
 
 /* Featured content */
@@ -216,8 +216,6 @@
   font-size: 1.1rem;
   line-height: 1.8;
   color: #b6eada;
-  opacity: 0.9;
-  font-style: italic;
   max-width: 700px;
   margin-bottom: 1.5rem;
 }
@@ -322,6 +320,6 @@
   .projects-title { font-size: 2.3rem; }
   .project-image-wrapper { height: 180px; }
   .project-description { font-size: 0.9rem; }
-  .featured-image-wrapper { height: 250px; }
+  .featured-image-wrapper { height: 131px; ;}
   .featured-content { padding: 1.8rem; }
 }

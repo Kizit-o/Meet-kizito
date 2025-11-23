@@ -4,14 +4,14 @@ import { SiReact, SiTailwindcss, SiJavascript, SiFigma } from 'react-icons/si';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import "@fontsource/allerta-stencil"; // Custom font
+import "@fontsource/allerta-stencil"; 
 
 function Hero() {
   useEffect(() => {
     AOS.init({
-      duration: 800,      // Global animation speed
-      once: false,         // Animate only once
-      easing: 'ease-out', // Smooth exit feel
+      duration: 800,      
+      once: false,         
+      easing: 'ease-out', 
     });
   }, []);
 
@@ -52,7 +52,7 @@ function Hero() {
 
           <p className="hero-tagline">
             <span className="highlight" data-aos="fade-up" data-aos-delay="800">
-              Building the web’s front-end — where design meets function.
+              Where design meets code.
             </span>
           </p>
         </div>
@@ -85,7 +85,7 @@ function Hero() {
           </button>
         </div>
 
-        {/* Tooling badges — brand identifiers */}
+        {/* Tooling badges*/}
         <div className="hero-tech-stack" data-aos="fade-up" data-aos-delay="400">
           <p className="tech-label">Built with modern tools</p>
 
