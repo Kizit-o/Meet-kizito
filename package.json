@@ -4,14 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-},
-
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+   "predeploy": "npm run build",   
+  "deploy": "gh-pages -d dist"    
+  },
   "dependencies": {
     "@fontsource/allerta-stencil": "^5.2.8",
     "@fontsource/archivo": "^5.2.8",
@@ -63,5 +61,4 @@
     "url": "https://github.com/Kizit-o/Meet-Kizito/issues"
   },
   "homepage": "https://kizit-o.github.io/Meet-Kizito/"
-
 }
