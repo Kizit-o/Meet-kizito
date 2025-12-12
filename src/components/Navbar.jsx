@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import AOS from "AOS";
+import AOS from "aos";
 import "aos/dist/aos.css";
 import "@fontsource/allerta-stencil";
 import "../styles/Navbar.css"; // Nav styling
