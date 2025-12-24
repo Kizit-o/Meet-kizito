@@ -1,22 +1,60 @@
 import { useState, useEffect } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { HiHome } from "react-icons/hi";
+import { IoClose } from "react-icons/io5";
+import { RiMenu3Fill } from "react-icons/ri";
+import { FaUser, FaCode, FaEnvelope } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "@fontsource/allerta-stencil";
-import "../styles/Navbar.css"; // Nav styling
+import "../styles/Navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true }); // Smooth entrance
+    AOS.init({ duration: 800, once: true });
 
-    const handleScroll = () => setScrolled(window.scrollY > 0); // Sticky-state toggle
+    let ticking = false;
+    const update = () => {
+      setScrolled(window.scrollY > 0);
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll); // Cleanup
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setMenuOpen(false);
+  };
+
+  const handleScrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setMenuOpen(false);
+  };
+
+  const navItems = [
+    { name: "Home", id: "home", icon: HiHome },
+    { name: "About", id: "about", icon: FaUser },
+    { name: "Projects", id: "projects", icon: FaCode },
+    { name: "Contact", id: "contact", icon: FaEnvelope },
+  ];
 
   return (
     <nav
@@ -24,50 +62,74 @@ function Navbar() {
       data-aos="fade-down"
     >
       <div className="navbar-inner">
-
-        {/* Desktop navigation */}
+        {/* Desktop Navigation */}
         <ul className="nav-links">
-          {["Home", "About", "Projects", "Contact"].map((label, index) => (
+          {navItems.map((item, index) => (
             <li
               key={index}
-              data-aos="fade-up"
-              data-aos-delay={150 + index * 150} // Staggered menu reveal
+              data-aos="fade-down"
+              data-aos-delay={index * 200}
             >
-              <a href={`#${label.toLowerCase()}`} className="nav-link">
-                {label}
-              </a>
+              {item.name === "Home" ? (
+                <a
+                  href={`#${item.id}`}
+                  onClick={handleScrollToTop}
+                  className="nav-link"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => handleSmoothScroll(e, item.id)}
+                  className="nav-link"
+                >
+                  {item.name}
+                </a>
+              )}
             </li>
           ))}
         </ul>
 
-        {/* Mobile toggle – menu icon switch */}
+        {/* Mobile Toggle */}
         <button
           className="menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={toggleMenu}
+          data-aos="fade-down"
+          data-aos-delay="400"
         >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+          {menuOpen ? <IoClose /> : <RiMenu3Fill />}
         </button>
       </div>
 
-      {/* Mobile slide-out panel */}
-      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        {["Home", "About", "Projects", "Contact"].map((label, index) => (
-          <a
-            key={index}
-            href={`#${label.toLowerCase()}`}
-            className="mobile-link"
-            onClick={() => setMenuOpen(false)} // Close on navigation
-          >
-            {label}
-          </a>
-        ))}
-      </div>
-
-      {/* Dim background when mobile is open */}
+      {/* Backdrop */}
       <div
         className={`backdrop ${menuOpen ? "active" : ""}`}
-        onClick={() => setMenuOpen(false)}
-      ></div>
+        onClick={toggleMenu}
+      />
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        {navItems.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <a
+              key={index}
+              href={`#${item.id}`}
+              className={`mobile-link ${menuOpen ? "animate" : ""}`}
+              style={{ transitionDelay: menuOpen ? `${100 + index * 50}ms` : "0ms" }}
+              onClick={(e) =>
+                item.name === "Home"
+                  ? handleScrollToTop(e)
+                  : handleSmoothScroll(e, item.id)
+              }
+            >
+              <Icon className="mobile-icon" />
+              {item.name}
+            </a>
+          );
+        })}
+      </div>
     </nav>
   );
 }
