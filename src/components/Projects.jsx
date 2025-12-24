@@ -3,7 +3,7 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import "@fontsource/allerta-stencil";
 import Projimg1 from "../assets/Port.png";
 import NFT from "../assets/NFT.png";
-import Prompto from "../assets/Prompto.png";
+import Prompto from "../assets/prompto.png";
 import Zyra from "../assets/Zyra.jpg";
 import certificate from "../assets/cert.png";
 import AOS from "aos";
