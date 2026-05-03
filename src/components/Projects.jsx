@@ -1,223 +1,250 @@
 import React, { useState, useEffect } from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import "@fontsource/allerta-stencil";
-import Projimg1 from "../assets/Port.png";
-import NFT from "../assets/NFT.png";
-import Prompto from "../assets/prompto.png";
-import Zyra from "../assets/Zyra.jpg";
-import certificate from "../assets/cert.png";
+import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "../styles/Projects.css";
 
-const projects = [
-  {
-    title: "Portfolio Website",
-    description:
-      "A personal portfolio showcasing my skills, projects, and contact info with responsive animations.",
-    image: Projimg1,
-    techStack: ["React", "JavaScript", "Vite", "CSS3"],
-    github: "https://github.com/Chisomkizito/portfolio",
-    live: "https://chisomkizito.vercel.app",
-  },
-  {
-    title: "Prompto",
-    description:
-      "AI-powered web application that transforms raw user inputs into expertly crafted prompts for LLMs.",
-    image: Prompto,
-    techStack: ["React", "Open AI", "JavaScript"],
-    github: "https://github.com/Kizit-o/Prompto",
-    live: "#",
-  },
-  {
-    title: "KZT-NFTs",
-    description:
-      "A marketplace that treats NFTs as exhibited artwork, not just listings, powered by OpenSea’s real NFT data.",
-    image: NFT,
-    techStack: ["React", "Tailwind", "Firebase"],
-    github: "https://github.com/Kizit-o/KZT-NFTs",
-    live: "#",
-  },
-];
+import Projimg1 from "../assets/Port.png";
+import NFT      from "../assets/NFT.png";
+import Prompto  from "../assets/prompto.png";
+import Zyra     from "../assets/Zyra.jpg";
 
+/* ── DATA ────────────────────────────────────────────────────── */
 
-const startupProjects = [
-  {
-    title: "Zyra",
-    description:
-      "As the frontend developer on Zyra, I help build a donations-facilitation platform built for Africa empowering communities to raise funds for medical, educational, and social needs. Fully supports crypto + fiat donations.",
-    image: Zyra,
-    techStack: ["React", "Tailwind", "Next.js", "Supabase"],
-    live: "https://zyra.fund",
-  },
-];
-
-// Certification highlight
-const featuredProject = {
+// Featured — always visible, full-width card
+const featured = {
+  badge:       "Startup Project",
+  title:       "Zyra",
+  index:       "/01",
   description:
-    "A completion of Legacy Responsive Web Design V8 on freeCodeCamp.",
-  image: certificate,
-  github: "https://github.com/Chisomkizito/enterprise-project",
-  live: "#",
+    "Frontend developer on Zyra, a donations-facilitation platform built for Africa. Empowering communities to raise funds for medical, educational, and social needs. Fully supports crypto + fiat.",
+  image:       Zyra,
+  tags:        ["React", "Tailwind", "Next.js", "Supabase"],
+  github:      null,
+  live:        "https://zyra.fund",
 };
 
+// Rest — revealed inside toggle
+const rest = [
+  {
+    title:       "Portfolio Website",
+    index:       "/02",
+    description: "Personal portfolio with responsive animations and modern tooling.",
+    image:       Projimg1,
+    tags:        ["React", "JavaScript", "Vite", "CSS3"],
+    github:      "https://github.com/Chisomkizito/portfolio",
+    live:        "https://chisomkizito.vercel.app",
+  },
+  {
+    title:       "Prompto",
+    index:       "/03",
+    description: "AI-powered app that transforms raw inputs into expertly crafted prompts for LLMs.",
+    image:       Prompto,
+    tags:        ["React", "OpenAI", "JavaScript"],
+    github:      "https://github.com/Kizit-o/Prompto",
+    live:        "#",
+  },
+  {
+    title:       "KZT-NFTs",
+    index:       "/04",
+    description: "NFT marketplace treating digital art as exhibition pieces, powered by OpenSea's real data.",
+    image:       NFT,
+    tags:        ["React", "Tailwind", "Firebase"],
+    github:      "https://github.com/Kizit-o/KZT-NFTs",
+    live:        "#",
+  },
+];
+
+/* ── COMPONENT ───────────────────────────────────────────────── */
 function Projects() {
-  const [hoveredCard, setHoveredCard] = useState(null); // Hover effect control
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true, easing: "ease-out" }); 
+    AOS.init({ duration: 800, once: true, easing: "ease-out" });
   }, []);
 
   return (
-    <section id="projects" className="projects">
-      <div className="projects-container">
-        {/* Main Title */}
-        <h2 className="projects-title" data-aos="fade-up" data-aos-delay="200">
-          My Projects
-        </h2>
+    <section id="projects" className="projects-section">
+      <div className="projects-inner">
 
-        {/* Regular Projects Grid */}
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="project-card"
-              onMouseEnter={() => setHoveredCard(`project-${index}`)}
-              onMouseLeave={() => setHoveredCard(null)}
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
-            >
-              <div className="project-image-wrapper">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-image"
-                />
-              </div>
-
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-
-                {/* Tech badges */}
-                <div className="project-tech">
-                  {project.techStack.map((tech, i) => (
-                    <span key={i} className="tech-badge">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="project-links">
-                  <a href={project.github} target="_blank" rel="noreferrer">
-                    <FaGithub /> Code
-                  </a>
-                  <a href={project.live} target="_blank" rel="noreferrer">
-                    <FaExternalLinkAlt /> Live Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* ── EYEBROW "02 / WORK" ───────────────── */}
+        <div className="projects-eyebrow" data-aos="fade-up">
+          <span className="proj-eyebrow-tag">02 / WORK</span>
+          <div className="proj-eyebrow-rule" />
         </div>
 
-        {/* Startup Section */}
-        <h2
-          className="projects-title"
-          style={{ marginTop: "4rem" }}
-          data-aos="fade-up"
-        >
-          Startup Project
-        </h2>
-
-        <div className="startup-projects-container">
-          {startupProjects.map((startup, index) => (
-            <div
-              key={index}
-              className="startup-project-card"
-              onMouseEnter={() => setHoveredCard(`startup-${index}`)}
-              onMouseLeave={() => setHoveredCard(null)}
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
-            >
-              <div className="startup-project-image-wrapper">
-                <img
-                  src={startup.image}
-                  alt={startup.title}
-                  className="startup-project-image"
-                />
-              </div>
-
-              <div className="startup-project-content">
-                <h3 className="project-title">{startup.title}</h3>
-                <p className="project-description">{startup.description}</p>
-
-                <div className="project-tech">
-                  {startup.techStack.map((tech, i) => (
-                    <span key={i} className="tech-badge">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="project-links">
-                  <a href={startup.live} target="_blank" rel="noreferrer">
-                    <FaExternalLinkAlt /> Visit
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* ── TITLE ROW ─────────────────────────── */}
+        {/* Spec: flex-col (mobile) → flex-row items-end justify-between (md) mb-16 */}
+        <div className="projects-title-row">
+          <h2 className="projects-h2" data-aos="fade-up" data-aos-delay="80">
+            Selected projects,{" "}
+            <em className="projects-h2-em">shipped.</em>
+          </h2>
+          <p className="projects-subtitle" data-aos="fade-up" data-aos-delay="180">
+            A snapshot of what I've been building lately, across the web, AI
+            tooling, and the open economy.
+          </p>
         </div>
 
-        {/* CERTIFICATION SECTION */}
-        <h2
-          className="projects-title"
-          style={{ marginTop: "4rem" }}
+        {/* ── FEATURED CARD — ZYRA ──────────────── */}
+        {/* Spec: full-width, border border-border, hover:-translate-y-1
+                 hover:border-primary/50 hover:shadow-card 500ms           */}
+        <div
+          className="featured-card"
           data-aos="fade-up"
+          data-aos-delay="120"
         >
-          Certification
-        </h2>
+          {/* Top accent line — fades in on hover */}
+          <div className="card-accent-line" aria-hidden="true" />
 
-        <div className="featured-card" data-aos="fade-up">
-          <div className="featured-image-wrapper">
-            <img
-              src={featuredProject.image}
-              alt={featuredProject.title}
-              className="featured-image"
-            />
-          </div>
+          <div className="featured-card-body">
 
-          <div className="featured-content">
-            <h3 className="featured-title">{featuredProject.title}</h3>
-            <p className="featured-role">{featuredProject.role}</p>
-
-            <div className="testimonial-rating">{"★".repeat(4)}</div>
-
-            <p className="featured-description">
-              {featuredProject.description}
-            </p>
-
-            <div className="testimonial-badge">
-              <span>✓</span> Verified by freeCodeCamp
+            {/* Badge row — spec: flex gap-2 mb-6 10px cyan pulse dot */}
+            <div className="featured-badge-row">
+              <span className="badge-dot" aria-hidden="true" />
+              <span className="badge-text">{featured.badge}</span>
             </div>
 
-         
-            <div className="project-links">
-              
+            {/* Title row — spec: flex items-start justify-between gap-4 mb-4 */}
+            <div className="featured-title-row">
+              <h3 className="featured-h3">{featured.title}</h3>
+              <span className="card-index">{featured.index}</span>
+            </div>
 
+            {/* Description — spec: text-muted leading-relaxed mb-6 text-lg max-w-2xl */}
+            <p className="featured-description">{featured.description}</p>
+
+            {/* Tags */}
+            <div className="card-tags">
+              {featured.tags.map((t) => (
+                <span key={t} className="card-tag">{t}</span>
+              ))}
+            </div>
+
+            {/* Buttons — spec: flex flex-wrap gap-3 */}
+            <div className="card-buttons">
+              {featured.github && (
+                <a
+                  href={featured.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-outline"
+                >
+                  CODE <FaArrowRight className="btn-arrow" />
+                </a>
+              )}
               <a
-                href={
-                  "https://www.freecodecamp.org/certification/kizztech/responsive-web-design"
-                }
+                href={featured.live}
                 target="_blank"
                 rel="noreferrer"
+                className="btn-filled"
               >
-                <FaExternalLinkAlt /> View Certificate
+                VISIT <FaArrowRight className="btn-arrow" />
               </a>
             </div>
+
           </div>
         </div>
+
+        {/* ── MORE WORK TOGGLE BLOCK ────────────── */}
+        {/* Spec: mt-16 max-w-4xl, border-t border-border pt-10 */}
+        <div className="more-work-wrapper">
+
+          {/* Header row */}
+          <div className="more-work-header">
+            <div className="more-work-left">
+              <p className="more-work-eyebrow">MORE WORK</p>
+              <h3 className="more-work-title">
+                Other Projects, Experiments &amp; Builds
+              </h3>
+            </div>
+
+            <button
+              className={`more-toggle-btn${showMore ? " more-toggle-btn--open" : ""}`}
+              onClick={() => setShowMore(!showMore)}
+              aria-expanded={showMore}
+            >
+              <span className="toggle-icon">{showMore ? "−" : "+"}</span>
+              <span className="toggle-label">
+                {showMore ? "Close" : "See More Projects"}
+              </span>
+            </button>
+          </div>
+
+          {/* Collapsible grid — spec: grid-rows 0fr → 1fr, 700ms ease-out */}
+          <div className={`more-work-body${showMore ? " more-work-body--open" : ""}`}>
+            <div className="more-work-inner">
+              <div className="rest-grid">
+                {rest.map((p, i) => (
+                  <div
+                    key={p.title}
+                    className="rest-card"
+                    data-aos="fade-up"
+                    data-aos-delay={i * 90}
+                  >
+                    <div className="card-accent-line" aria-hidden="true" />
+
+                    <div className="rest-card-body">
+
+                      {/* Title + index */}
+                      <div className="rest-title-row">
+                        <h3 className="rest-h3">{p.title}</h3>
+                        <span className="card-index">{p.index}</span>
+                      </div>
+
+                      {/* Description */}
+                      <p className="rest-description">{p.description}</p>
+
+                      {/* Tags */}
+                      <div className="card-tags">
+                        {p.tags.map((t) => (
+                          <span key={t} className="card-tag">{t}</span>
+                        ))}
+                      </div>
+
+                      {/* Buttons — mt-auto pushes to bottom of card */}
+                      <div className="card-buttons card-buttons--bottom">
+                        {p.github && (
+                          <a
+                            href={p.github}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn-outline"
+                          >
+                            CODE <FaArrowRight className="btn-arrow" />
+                          </a>
+                        )}
+                        {p.live && p.live !== "#" && (
+                          <a
+                            href={p.live}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn-filled"
+                          >
+                            LIVE DEMO <FaArrowRight className="btn-arrow" />
+                          </a>
+                        )}
+                        {p.live === "#" && (
+                          <a
+                            href={p.live}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn-filled"
+                          >
+                            LIVE DEMO <FaArrowRight className="btn-arrow" />
+                          </a>
+                        )}
+                      </div>
+
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

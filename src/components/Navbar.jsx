@@ -1,136 +1,146 @@
-import { useState, useEffect } from "react";
-import { HiHome } from "react-icons/hi";
-import { IoClose } from "react-icons/io5";
-import { RiMenu3Fill } from "react-icons/ri";
-import { FaUser, FaCode, FaEnvelope } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import "@fontsource/allerta-stencil";
-import "../styles/Navbar.css";
+import { useState, useEffect } from 'react';
+import '../styles/Navbar.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled]   = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
 
     let ticking = false;
-    const update = () => {
-      setScrolled(window.scrollY > 0);
-      ticking = false;
-    };
+    const update = () => { setScrolled(window.scrollY > 10); ticking = false; };
+    const onScroll = () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } };
 
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(update);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  // Lock body scroll while mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
-  const handleSmoothScroll = (e, targetId) => {
-    e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  const scrollTo = (id) => {
     setMenuOpen(false);
-  };
-
-  const handleScrollToTop = (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    setMenuOpen(false);
+    setTimeout(() => {
+      if (id === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 340);
   };
 
   const navItems = [
-    { name: "Home", id: "home", icon: HiHome },
-    { name: "About", id: "about", icon: FaUser },
-    { name: "Projects", id: "projects", icon: FaCode },
-    { name: "Contact", id: "contact", icon: FaEnvelope },
+    { id: 'home',     label: 'Home'     },
+    { id: 'about',    label: 'About'    },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact',  label: 'Contact'  },
   ];
 
   return (
-    <nav
-      className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}
-      data-aos="fade-down"
-    >
-      <div className="navbar-inner">
-        {/* Desktop Navigation */}
+    <>
+      <nav
+        className={`navbar${scrolled ? ' navbar-scrolled' : ''}`}
+        data-aos="fade-down"
+      >
+        {/* Logo — left */}
+        <div className="nav-logo">
+          Kizit<span className="logo-dot">·</span>o
+        </div>
+
+        {/* Desktop links — center */}
         <ul className="nav-links">
-          {navItems.map((item, index) => (
-            <li
-              key={index}
-              data-aos="fade-down"
-              data-aos-delay={index * 200}
-            >
-              {item.name === "Home" ? (
-                <a
-                  href={`#${item.id}`}
-                  onClick={handleScrollToTop}
-                  className="nav-link"
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => handleSmoothScroll(e, item.id)}
-                  className="nav-link"
-                >
-                  {item.name}
-                </a>
-              )}
+          {navItems.map(({ id, label }, i) => (
+            <li key={id} data-aos="fade-down" data-aos-delay={i * 80}>
+              <button className="nav-link" onClick={() => scrollTo(id)}>
+                {label}
+              </button>
             </li>
           ))}
         </ul>
 
-        {/* Mobile Toggle */}
+        {/* LET'S TALK — right (desktop) */}
         <button
-          className="menu-toggle"
-          onClick={toggleMenu}
+          className="nav-cta"
+          onClick={() => scrollTo('contact')}
           data-aos="fade-down"
-          data-aos-delay="400"
+          data-aos-delay="320"
         >
-          {menuOpen ? <IoClose /> : <RiMenu3Fill />}
+          LET'S TALK
         </button>
-      </div>
 
-      {/* Backdrop */}
+        {/* Hamburger — mobile only */}
+        <button
+          className="nav-hamburger"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open navigation"
+          aria-expanded={menuOpen}
+        >
+          <span /><span /><span />
+        </button>
+      </nav>
+
+      {/* ── MOBILE MENU OVERLAY ──────────────────── */}
       <div
-        className={`backdrop ${menuOpen ? "active" : ""}`}
-        onClick={toggleMenu}
-      />
+        className={`mobile-menu${menuOpen ? ' open' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-hidden={!menuOpen}
+      >
+        {/* Header row */}
+        <div className="mm-header">
+          <div className="nav-logo">
+            Kizit<span className="logo-dot">·</span>o
+          </div>
+          <button
+            className="mm-close"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close navigation"
+          >
+            ✕
+          </button>
+        </div>
 
-      {/* Mobile Menu */}
-      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        {navItems.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <a
-              key={index}
-              href={`#${item.id}`}
-              className={`mobile-link ${menuOpen ? "animate" : ""}`}
-              style={{ transitionDelay: menuOpen ? `${100 + index * 50}ms` : "0ms" }}
-              onClick={(e) =>
-                item.name === "Home"
-                  ? handleScrollToTop(e)
-                  : handleSmoothScroll(e, item.id)
-              }
-            >
-              <Icon className="mobile-icon" />
-              {item.name}
-            </a>
-          );
-        })}
+        {/* Body */}
+        <div className="mm-body">
+          <p className="mm-label">MENU</p>
+
+          <ul className="mm-nav-list">
+            {navItems.map(({ id, label }, i) => (
+              <li key={id}>
+                <button
+                  className="mm-nav-link"
+                  onClick={() => scrollTo(id)}
+                >
+                  <span className="mm-num">0{i + 1}</span>
+                  <span className="mm-text">{label}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <button className="mm-cta" onClick={() => scrollTo('contact')}>
+            LET'S TALK →
+          </button>
+        </div>
+
+        <p className="mm-footer">KIZITO · FRONTEND DEVELOPER</p>
       </div>
-    </nav>
+
+      {/* Tap-to-close backdrop */}
+      {menuOpen && (
+        <div
+          className="menu-backdrop"
+          onClick={() => setMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+    </>
   );
 }
 

@@ -1,181 +1,291 @@
+/* =============================================================
+   About.css  ·  Carousel bugs fixed
+   ============================================================= */
+
+/* ── SECTION ────────────────────────────────────────────────── */
 .about {
-  overflow: hidden;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  background: #03001c;
-  padding: 3rem 1rem;
-  box-sizing: border-box;
-}
-
-/* Container */
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-/* LEFT SIDE (Carousel) */
-.about-left {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-carousel {
-  width: 100%;
-  max-width: 450px;
-  height: 450px;
   position: relative;
+  background: #080808;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 7rem 0;
   overflow: hidden;
-  border-radius: 20px;
 }
 
-.about-swiper {
+@media (min-width: 768px) {
+  .about { padding: 10rem 0; }
+}
+
+/* ── INNER WRAPPER ──────────────────────────────────────────── */
+.about-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .about-inner { padding: 0 2.5rem; }
+}
+
+/* ── EYEBROW ────────────────────────────────────────────────── */
+.about-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.eyebrow-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: #00ccff;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.eyebrow-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* ── TWO-COLUMN GRID ────────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 7fr 5fr;
+    gap: 5rem;
+  }
+}
+
+/* ── TEXT COLUMN ────────────────────────────────────────────── */
+.about-text-col { order: 2; }
+
+@media (min-width: 1024px) {
+  .about-text-col { order: 1; }
+}
+
+.about-heading {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 1.05;
+  color: #ffffff;
+  margin: 0 0 2.5rem 0;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .about-heading { font-size: 3.75rem; }
+}
+
+.heading-em {
+  font-style: italic;
+  color: #00ccff;
+}
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 36rem;
+}
+
+.about-body p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.625;
+  color: rgba(255, 255, 255, 0.60);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .about-body p { font-size: 1.125rem; }
+}
+
+/* ── PORTRAIT COLUMN ────────────────────────────────────────── */
+.about-portrait-col { order: 1; }
+
+@media (min-width: 1024px) {
+  .about-portrait-col { order: 2; }
+}
+
+/* ── PORTRAIT ASPECT WRAPPER ────────────────────────────────── */
+/*
+  FIX 1: Use padding-bottom trick for reliable cross-browser
+  aspect-ratio. This gives Swiper a concrete pixel height to
+  measure against — aspect-ratio alone doesn't cascade into
+  Swiper's internal absolute/transform layout engine.
+*/
+.portrait-aspect {
+  position: relative;
   width: 100%;
-  height: 100%;
+  padding-bottom: 125%;   /* 4:5 = 125% (height / width * 100) */
 }
 
-/* Each image inside swiper */
-.about-image {
+/* ── PORTRAIT CLIP ──────────────────────────────────────────── */
+/*
+  FIX 2: overflow:hidden is applied ONLY here — on the swiper
+  container — NOT on the outer wrapper. This means .portrait-caption
+  and .portrait-pagination (siblings, not children) are never clipped.
+*/
+.portrait-clip {
+  position: absolute;
+  inset: 0;
+  bottom: 2.5rem;          /* leave room for caption below */
+  overflow: hidden;
+}
+
+/* ── SWIPER ─────────────────────────────────────────────────── */
+/*
+  FIX 3: Swiper is absolutely positioned to fill .portrait-clip
+  exactly. Both width and height are explicit — Swiper's internal
+  translateX logic requires a concrete height to size slides.
+*/
+.portrait-swiper {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ── SWIPER SLIDE ───────────────────────────────────────────── */
+/*
+  FIX 4: .swiper-slide must be height:100% so it fills the swiper.
+  Without this, the slide collapses to content height (0 for a bg div).
+*/
+.portrait-swiper-slide {
+  height: 100% !important;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+/* ── IMAGE INNER ────────────────────────────────────────────── */
+/*
+  FIX 5: Scale transform is on THIS element — the image div inside
+  the slide — NOT on .swiper-slide itself.
+  Swiper uses transform:translateX on .swiper-wrapper.
+  If we also transform the slide, the two transforms compound
+  and cause the jank/jump on slide transition.
+  Applying scale only to the inner image div is clean and isolated.
+*/
+.portrait-img-inner {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(182, 234, 218, 0.3);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  background-position: center top;
+  filter: grayscale(1) contrast(1.25);
+  transition: filter 700ms ease, transform 700ms ease;
 }
 
-.about-image:hover {
-  transform: scale(1.03);
-  box-shadow: 0 15px 40px rgba(182, 234, 218, 0.4);
+.portrait-clip:hover .portrait-img-inner {
+  filter: grayscale(0) contrast(1.1);
+  transform: scale(1.05);
 }
 
-/* Slide transitions */
-.swiper-slide {
-  opacity: 0.4;
-  transform: scale(0.9);
-  transition: all 0.6s ease;
+/* Inset ring — decorative 1px cyan/20 border overlay */
+.portrait-ring {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 204, 255, 0.20);
+  pointer-events: none;
+  z-index: 5;
 }
 
-.swiper-slide-active {
+/* ── CAPTION ────────────────────────────────────────────────── */
+/*
+  FIX 6: Caption is a sibling of .portrait-clip, positioned
+  absolutely relative to .portrait-aspect — completely outside
+  the overflow:hidden clip zone.
+*/
+.portrait-caption {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.25rem;
+  z-index: 10;
+}
+
+.caption-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.caption-rec {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #00ccff;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.rec-dot {
+  font-size: 0.45rem;
+  animation: recPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes recPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+/* ── PAGINATION ─────────────────────────────────────────────── */
+/*
+  FIX 7: External pagination element — sibling of .portrait-clip,
+  rendered below the image, never clipped by overflow:hidden.
+*/
+.portrait-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 0.875rem;
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+  right: 0;
+}
+
+/* Swiper injects .swiper-pagination-bullet into this el */
+.portrait-pagination .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.30);
   opacity: 1;
-  transform: scale(1);
-  z-index: 2;
-}
-
-.swiper-pagination-bullet {
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
-  background: none !important;
-}
-
-.swiper-pagination-bullet-active {
-  opacity: 1;
-  background: none !important;
-}
-
-/* RIGHT SIDE */
-.about-right {
-  flex: 1;
-  text-align: left;
-  border: 1.5px solid #B6EADA;
-  padding: 3rem 2rem;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  background: rgba(255, 255, 255, 0.02);
-  overflow-y: auto;
-  max-height: 90vh;
-  scrollbar-width: thin;
-  scrollbar-color: #B6EADA transparent;
-}
-
-/* scrollbar */
-.about-right::-webkit-scrollbar {
   width: 6px;
-}
-.about-right::-webkit-scrollbar-thumb {
-  background-color: #B6EADA;
-  border-radius: 10px;
-}
-
-/* TEXT */
-.about-right h1 {
-  font-size: clamp(3rem, 6vw, 3rem);
-  margin-bottom: 1rem;
-  color: #B6EADA;
-  font-family: "Allerta Stencil", sans-serif;
-  font-weight: bold;
+  height: 6px;
+  border-radius: 50%;
+  transition: background 0.3s;
+  cursor: pointer;
 }
 
-.about-right p {
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  line-height: 1.8;
-  color: #fff;
-  font-family: "Allerta Stencil", sans-serif;
-  font-weight:  20;
+.portrait-pagination .swiper-pagination-bullet-active {
+  background: #00ccff;
 }
 
-.about-right strong {
-  color: #00bfff;
-}
+/* ── MOBILE ─────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .about-eyebrow  { margin-bottom: 2.5rem; }
+  .about-heading  { font-size: 2.25rem; margin-bottom: 1.75rem; }
+  .about-body     { max-width: 100%; }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-   .about-left {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  .portrait-aspect {
+    max-width: 320px;
+    margin: 0 auto;
+    padding-bottom: 133%;   /* slightly taller on mobile */
   }
-
-  
-
-  p{
-    font-size: 0.1rem;
-  }
-
-  .about-text{
-    text-align: left;
-  }
-
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-right {
-    text-align: center;
-    border-radius: 20px;
-    max-height: none;
-  }
-
- .about-carousel {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    aspect-ratio: 1 / 1; /* keeps it square */
-    overflow: hidden;
-  }
-
-.about-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .swiper-slide {
-  min-height: 250px;
-}
-
 }

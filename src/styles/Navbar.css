@@ -1,197 +1,306 @@
-/* NAVBAR WRAPPER */
+/* =============================================================
+   Navbar.css  ·  Aligned to Hero navbar design system
+   Logo left · Links center · CTA right · Mobile slide-in menu
+   ============================================================= */
+
+/* ── TOKENS (mirrors Hero.css :root) ───────────────────────── */
+:root {
+  --cyan:        #00ccff;
+  --bg:          #0a0a0a;
+  --fg:          #ffffff;
+  --muted:       rgba(255, 255, 255, 0.45);
+  --border:      rgba(255, 255, 255, 0.15);
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:   'DM Sans', sans-serif;
+}
+
+/* ── NAVBAR SHELL ───────────────────────────────────────────── */
 .navbar {
   position: fixed;
-  left: 0;
-  top: 1.5rem;
-  width: 100%;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  padding: 0 2rem;
-  transition: all 0.3s ease;
-}
-
-.navbar-scrolled {
   top: 0;
-  background: rgba(4, 10, 36, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 0.5rem 2rem;
-}
-
-/* INNER FLEX */
-.navbar-inner {
-  position: relative;
-  max-width: 1320px;
-  margin: 0 auto;
+  left: 0;
   width: 100%;
+  z-index: 100;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1.75rem 2.5rem;
+  gap: 2rem;
+  /* transparent by default — sits over hero */
+  background: transparent;
+  transition: background 0.3s ease, padding 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-/* DESKTOP NAV */
+/* Scrolled state — frosted dark bar */
+.navbar-scrolled {
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── LOGO ───────────────────────────────────────────────────── */
+.nav-logo {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  margin-right: auto;       /* pushes everything else to the right */
+  cursor: default;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.logo-dot { color: var(--cyan); }
+
+/* ── DESKTOP NAV LINKS — center ─────────────────────────────── */
 .nav-links {
-  display: none;
+  display: flex;
   list-style: none;
+  gap: 2.5rem;
   margin: 0;
   padding: 0;
-  gap: 2.5rem;
 }
 
-@media (min-width: 768px) {
-  .nav-links {
-    display: flex;
-    font-family: "Allerta Stencil", sans-serif;
-  }
-}
-
-/* NAV LINK */
 .nav-link {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.01em;
   position: relative;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 0.75rem 0.25rem;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #91f2f9;
+  transition: color 0.22s ease;
 }
 
 .nav-link::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0%;
-  background: #91f2f9;
-  transition: width 0.3s ease;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background: var(--cyan);
+  transition: width 0.25s ease;
 }
 
-.nav-link:hover::after {
-  width: 100%;
+.nav-link:hover { color: var(--fg); }
+.nav-link:hover::after { width: 100%; }
+
+/* ── CTA BUTTON — right ─────────────────────────────────────── */
+.nav-cta {
+  background: transparent;
+  border: 1.5px solid var(--cyan);
+  color: var(--cyan);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  padding: 0.55rem 1.2rem;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.22s ease, color 0.22s ease;
 }
 
-/* HAMBURGER */
-.menu-toggle {
-  position: absolute;
-  right: 0;
-  top: 10%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  color: white;
+.nav-cta:hover {
+  background: var(--cyan);
+  color: #000;
+}
+
+/* ── HAMBURGER — mobile only ────────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 60;
-  transition: color 0.3s ease;
+  padding: 6px 4px;
+  flex-shrink: 0;
 }
 
-.menu-toggle:hover {
-  color: #91f2f9;
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--fg);
+  border-radius: 2px;
+  transition: background 0.2s;
 }
 
-@media (min-width: 768px) {
-  .menu-toggle {
-    display: none;
-  }
-}
+.nav-hamburger:hover span { background: var(--cyan); }
 
-/* BACKDROP */
-.backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 40;
-}
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  MOBILE MENU                                                 ║
+   ╚══════════════════════════════════════════════════════════════╝ */
 
-.backdrop.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* MOBILE MENU */
+/* Full-screen slide-in from left */
 .mobile-menu {
   position: fixed;
-  top: 0;
-  right: 0;
-  height: 200vh;
-  /* height: 100dvh;  Dynamic viewport height for mobile browsers */
-  width: 280px;
-  padding: 5rem 2rem 2rem;
-  background: #040a24;
+  inset: 0;
+  background: #0d0d0d;
+  z-index: 200;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  z-index: 50;
-  border-left: 3px solid rgba(0, 227, 243, 0.2);
+  padding: 1.75rem 1.5rem 2.25rem;
+  transform: translateX(-100%);
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
-.mobile-menu.open {
-  transform: translateX(0);
-}
+.mobile-menu.open { transform: translateX(0); }
 
-/* MOBILE LINK */
-.mobile-link {
+/* Header row — logo + close */
+.mm-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  color: white;
-  font-family: "Allerta Stencil", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 0.75rem 0;
-  opacity: 0;
-  transform: translateX(2rem);
-  transition: all 0.3s ease;
+  justify-content: space-between;
+  margin-bottom: 3rem;
 }
 
-.mobile-link.animate {
-  opacity: 1;
-  transform: translateX(0);
+.mm-close {
+  background: none;
+  border: none;
+  color: var(--fg);
+  font-size: 1.375rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  opacity: 0.75;
+  transition: opacity 0.2s;
 }
 
-.mobile-link:hover {
-  color: #91f2f9;
-  padding-left: 0.5rem;
+.mm-close:hover { opacity: 1; }
+
+/* Body */
+.mm-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.mobile-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: #91f2f9;
+.mm-label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin: 0 0 1.75rem 0;
 }
 
-/* MOBILE FIXES */
-@media (max-width: 768px) {
-  .navbar {
-    top: 0.625rem;
-    padding: 0 1rem;
-  }
-
-  .navbar-scrolled {
-    padding: 0.5rem 1rem;
-  }
-
-  .mobile-menu {
-    width: 75vw;
-    max-width: 320px;
-  }
+/* Nav items */
+.mm-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
 }
 
-@media (max-width: 480px) {
-  .mobile-menu {
-    width: 85vw;
-    max-width: none;
-  }
+.mm-nav-link {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.2s;
+}
+
+.mm-nav-link:hover { opacity: 0.72; }
+
+.mm-num {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.28);
+  min-width: 24px;
+}
+
+.mm-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 8vw, 2.25rem);
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1;
+}
+
+/* LET'S TALK CTA */
+.mm-cta {
+  display: block;
+  width: 100%;
+  padding: 1.1rem;
+  margin-top: 2rem;
+  background: var(--cyan);
+  color: #000;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.22s;
+}
+
+.mm-cta:hover { opacity: 0.88; }
+
+/* Footer tag */
+.mm-footer {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  margin-top: 2rem;
+}
+
+/* Tap-to-close backdrop */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: transparent;
+}
+
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  RESPONSIVE                                                  ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+/* ── Mobile < 768px ─────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Hide desktop elements */
+  .nav-links,
+  .nav-cta  { display: none; }
+
+  /* Show hamburger */
+  .nav-hamburger { display: flex; }
+
+  .navbar         { padding: 1.25rem 1.25rem; }
+  .navbar-scrolled{ padding: 0.875rem 1.25rem; }
+
+  /* Logo no longer needs margin-right auto — hamburger fills the right */
+  .nav-logo { margin-right: auto; }
+}
+
+/* ── Tablet 768px–1023px ────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navbar          { padding: 1.5rem 2rem; }
+  .navbar-scrolled { padding: 0.875rem 2rem; }
+  .nav-links       { gap: 2rem; }
+}
+
+/* ── Large desktop ≥ 1280px ─────────────────────────────────── */
+@media (min-width: 1280px) {
+  .navbar          { padding: 1.875rem 4rem; }
+  .navbar-scrolled { padding: 1.1rem 4rem; }
 }

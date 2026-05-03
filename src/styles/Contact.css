@@ -7,7 +7,6 @@
 }
 
 .contact h2 {
-  font-family: "Allerta Stencil", sans-serif;
   color: #B6EADA;
   font-weight: bold;
   font-size: clamp(2rem, 7vw, 4rem);

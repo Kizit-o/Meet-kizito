@@ -1,6 +1,12 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import "@fontsource/allerta-stencil";
+import '@fontsource/fraunces/700.css';
+import '@fontsource/fraunces/900.css';
+import '@fontsource/fraunces/400-italic.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '@fontsource/dm-sans/700.css';
 import { FaGithub, FaEnvelope, FaTelegram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import "../styles/Contact.css";
