@@ -68,15 +68,10 @@ function About() {
             data-aos="fade-left"
             data-aos-delay="120"
           >
-            {/*
-              FIX: Split into two layers —
-              .portrait-aspect  → holds the 4:5 ratio (no overflow hidden)
-              .portrait-clip    → overflow hidden ONLY around the swiper
-              .portrait-caption → sits OUTSIDE .portrait-clip so it's never clipped
-            */}
+            {/**/}
             <div className="portrait-aspect">
 
-              {/* Overflow clip — contains only the swiper images */}
+              {/* Overflow clip */}
               <div className="portrait-clip">
                 <Swiper
                   modules={[Autoplay, Pagination]}
@@ -86,16 +81,14 @@ function About() {
                   autoplay={{ delay: 3200, disableOnInteraction: false }}
                   pagination={{
                     clickable: true,
-                    el: '.portrait-pagination',   /* external pagination el */
+                    el: '.portrait-pagination',   
                   }}
                   className="portrait-swiper"
                 >
                   {SLIDES.map((img, i) => (
                     <SwiperSlide key={i} className="portrait-swiper-slide">
                       {/*
-                        FIX: Scale is applied to .portrait-img-inner (the image div),
-                        NOT to the slide itself — avoids conflicting with Swiper's
-                        own translateX transform on .swiper-wrapper
+                        
                       */}
                       <div
                         className="portrait-img-inner"
@@ -105,11 +98,11 @@ function About() {
                   ))}
                 </Swiper>
 
-                {/* Inset ring overlay — purely decorative */}
+                {/* Inset ring overlay */}
                 <div className="portrait-ring" aria-hidden="true" />
               </div>
 
-              {/* Caption — outside clip so it's never hidden */}
+              {/* Caption */}
               <div className="portrait-caption">
                 <span className="caption-name">KIZITO · 2026</span>
                 <span className="caption-rec">
@@ -117,7 +110,7 @@ function About() {
                 </span>
               </div>
 
-              {/* External pagination — outside clip, never clipped */}
+              {/* External pagination */}
               <div className="portrait-pagination" />
 
             </div>

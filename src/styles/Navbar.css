@@ -1,9 +1,3 @@
-/* =============================================================
-   Navbar.css  ·  Aligned to Hero navbar design system
-   Logo left · Links center · CTA right · Mobile slide-in menu
-   ============================================================= */
-
-/* ── TOKENS (mirrors Hero.css :root) ───────────────────────── */
 :root {
   --cyan:        #00ccff;
   --bg:          #0a0a0a;
@@ -25,7 +19,6 @@
   align-items: center;
   padding: 1.75rem 2.5rem;
   gap: 2rem;
-  /* transparent by default — sits over hero */
   background: transparent;
   transition: background 0.3s ease, padding 0.3s ease, backdrop-filter 0.3s ease;
 }
@@ -46,7 +39,7 @@
   font-size: 1.2rem;
   color: var(--fg);
   letter-spacing: -0.01em;
-  margin-right: auto;       /* pushes everything else to the right */
+  margin-right: auto;       
   cursor: default;
   user-select: none;
   flex-shrink: 0;
@@ -54,7 +47,7 @@
 
 .logo-dot { color: var(--cyan); }
 
-/* ── DESKTOP NAV LINKS — center ─────────────────────────────── */
+/* ── DESKTOP NAV LINKS  ─────────────────────────────── */
 .nav-links {
   display: flex;
   list-style: none;
@@ -139,7 +132,6 @@
    ║  MOBILE MENU                                                 ║
    ╚══════════════════════════════════════════════════════════════╝ */
 
-/* Full-screen slide-in from left */
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -288,7 +280,6 @@
   .navbar         { padding: 1.25rem 1.25rem; }
   .navbar-scrolled{ padding: 0.875rem 1.25rem; }
 
-  /* Logo no longer needs margin-right auto — hamburger fills the right */
   .nav-logo { margin-right: auto; }
 }
 

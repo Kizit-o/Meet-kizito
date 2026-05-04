@@ -5,7 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import MyIMG from '../assets/MyIMG.jpg';
 
-/* Splits a word into individually wrapped letter spans */
+
 const LetterSplit = ({ text, baseClass }) =>
   text.split('').map((char, i) => (
     <span key={i} className={`hero-letter ${baseClass}`}>
@@ -28,7 +28,7 @@ function Hero() {
       {/* ── GRAIN TEXTURE OVERLAY ───────────────── */}
       <div className="hero-grain" aria-hidden="true" />
 
-      {/* ── PORTRAIT — right-side bleed ─────────── */}
+      {/* ── PORTRAIT ─────────── */}
      <div
   className="hero-portrait"
   aria-hidden="true"
@@ -38,7 +38,7 @@ function Hero() {
   <div className="portrait-overlay-v" />
 </div>
 
-      {/* ── VERTICAL LABEL — lg+ only ───────────── */}
+      {/* ── VERTICAL LABEL───────────── */}
       <div className="hero-vertical-label" aria-hidden="true">
         <div className="vertical-divider" />
         <span className="vertical-text">PORTFOLIO / 2026</span>

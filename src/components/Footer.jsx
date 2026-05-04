@@ -1,20 +1,30 @@
-// import '../styles/Footer.css';
 import '../styles/Footer.css';
-import '@fontsource/fraunces/700.css';
-import '@fontsource/fraunces/900.css';
-import '@fontsource/fraunces/400-italic.css';
-import '@fontsource/dm-sans/400.css';
-import '@fontsource/dm-sans/500.css';
-import '@fontsource/dm-sans/600.css';
-import '@fontsource/dm-sans/700.css';
 
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-container">
-        <p className="footer-text">
-          &copy; {new Date().getFullYear()} <span className="footer-name">Meet Kizito</span>. Built with💙and code.
-        </p>
+      <div className="footer-inner">
+
+        {/* Top row — logo only */}
+        <div className="footer-top">
+          <div className="footer-logo">
+            Kizit<span className="footer-logo-dot">·</span>o
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="footer-rule" />
+
+        {/* Bottom row */}
+        <div className="footer-bottom">
+          <p className="footer-copy">
+            &copy; {new Date().getFullYear()} Kizito. All rights reserved.
+          </p>
+          <p className="footer-tagline">
+            Built with <span className="footer-heart">💙</span> and code.
+          </p>
+        </div>
+
       </div>
     </footer>
   );

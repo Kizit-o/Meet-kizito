@@ -1,21 +1,17 @@
-/* =============================================================
-   Projects.css  ·  Exact layout spec
-   02 / WORK — featured card + collapsible rest grid
-   ============================================================= */
 
-/* ── SECTION ────────────────────────────────────────────────── */
+
+/* ── PROJECTS SECTION ───────────────────────────────────────── */
 .projects-section {
   position: relative;
   background: #080808;
   border-top: 1px solid rgba(255, 255, 255, 0.10);
-  padding: 7rem 0;          /* py-28 mobile */
+  padding: 7rem 0;
 }
 
 @media (min-width: 768px) {
-  .projects-section { padding: 10rem 0; }  /* py-40 */
+  .projects-section { padding: 10rem 0; }
 }
 
-/* ── INNER WRAPPER ──────────────────────────────────────────── */
 .projects-inner {
   max-width: 80rem;
   margin: 0 auto;
@@ -51,8 +47,6 @@
 }
 
 /* ── TITLE ROW ──────────────────────────────────────────────── */
-/* Spec: flex-col (mobile) → flex-row items-end justify-between (md)
-         gap-6 mb-16                                             */
 .projects-title-row {
   display: flex;
   flex-direction: column;
@@ -69,12 +63,10 @@
   }
 }
 
-/* H2 — spec: font-display text-4xl md:text-6xl font-bold leading-[1.05]
-              text-balance max-w-2xl                             */
 .projects-h2 {
   font-family: 'Fraunces', Georgia, serif;
   font-weight: 700;
-  font-size: 2.25rem;       /* text-4xl mobile */
+  font-size: 2.25rem;
   line-height: 1.05;
   color: #ffffff;
   margin: 0;
@@ -84,16 +76,14 @@
 }
 
 @media (min-width: 768px) {
-  .projects-h2 { font-size: 3.75rem; }  /* text-6xl */
+  .projects-h2 { font-size: 3.75rem; }
 }
 
-/* "shipped" — italic cyan */
 .projects-h2-em {
   font-style: italic;
   color: #00ccff;
 }
 
-/* Subtitle — spec: text-muted max-w-sm */
 .projects-subtitle {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.9375rem;
@@ -105,8 +95,6 @@
 }
 
 /* ── SHARED CARD BASE ───────────────────────────────────────── */
-/* Spec: border border-border bg-card hover:border-primary/50
-         hover:-translate-y-1 hover:shadow-card 500ms overflow-hidden */
 .featured-card,
 .rest-card {
   position: relative;
@@ -120,19 +108,13 @@
 .rest-card:hover {
   border-color: rgba(0, 204, 255, 0.50);
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 0 transparent;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* Top accent line — hidden, fades on group hover */
 .card-accent-line {
   height: 1px;
   width: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(0, 204, 255, 0.40),
-    transparent
-  );
+  background: linear-gradient(to right, transparent, rgba(0, 204, 255, 0.40), transparent);
   opacity: 0;
   transition: opacity 400ms ease;
 }
@@ -140,8 +122,7 @@
 .featured-card:hover .card-accent-line,
 .rest-card:hover     .card-accent-line { opacity: 1; }
 
-/* ── FEATURED CARD BODY ─────────────────────────────────────── */
-/* Spec: p-8 md:p-12 (32px → 48px) */
+/* ── FEATURED CARD ──────────────────────────────────────────── */
 .featured-card-body {
   padding: 2rem;
 }
@@ -150,9 +131,6 @@
   .featured-card-body { padding: 3rem; }
 }
 
-/* Badge row — spec: flex items-center gap-2 mb-6
-                     text-[10px] tracking-[0.4em] cyan uppercase
-                     pulse dot w-2 h-2                           */
 .featured-badge-row {
   display: flex;
   align-items: center;
@@ -185,7 +163,6 @@
   text-transform: uppercase;
 }
 
-/* Title row — spec: flex items-start justify-between gap-4 mb-4 */
 .featured-title-row,
 .rest-title-row {
   display: flex;
@@ -195,21 +172,19 @@
   margin-bottom: 1rem;
 }
 
-/* Featured H3 — spec: font-display font-bold leading-none text-5xl md:text-7xl */
 .featured-h3 {
   font-family: 'Fraunces', Georgia, serif;
   font-weight: 700;
-  font-size: 3rem;          /* text-5xl mobile */
-  line-height: 1;
+  font-size: 3rem;
   color: #ffffff;
   margin: 0;
+  line-height: 1;
 }
 
 @media (min-width: 768px) {
-  .featured-h3 { font-size: 4.5rem; }  /* text-7xl */
+  .featured-h3 { font-size: 4.5rem; }
 }
 
-/* Index counter — spec: text-xs text-muted tabular-nums mt-2 shrink-0 */
 .card-index {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.75rem;
@@ -219,7 +194,6 @@
   flex-shrink: 0;
 }
 
-/* Featured description — spec: text-muted leading-relaxed mb-6 text-lg max-w-2xl */
 .featured-description {
   font-family: 'DM Sans', sans-serif;
   font-size: 1.125rem;
@@ -229,9 +203,7 @@
   margin: 0 0 1.5rem 0;
 }
 
-/* ── SHARED: TAGS ───────────────────────────────────────────── */
-/* Spec: flex flex-wrap gap-2 mb-8
-         text-[10px] tracking-wider uppercase border border-border px-2.5 py-1 */
+/* ── TAGS ───────────────────────────────────────────────────── */
 .card-tags {
   display: flex;
   flex-wrap: wrap;
@@ -256,21 +228,15 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* ── SHARED: BUTTONS ────────────────────────────────────────── */
-/* Spec: flex flex-wrap gap-3
-         inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.2em] */
+/* ── BUTTONS ────────────────────────────────────────────────── */
 .card-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
 
-/* mt-auto on rest cards to push buttons to bottom */
-.card-buttons--bottom {
-  margin-top: auto;
-}
+.card-buttons--bottom { margin-top: auto; }
 
-/* Outline button — Code */
 .btn-outline {
   display: inline-flex;
   align-items: center;
@@ -287,12 +253,8 @@
   transition: border-color 0.3s, color 0.3s;
 }
 
-.btn-outline:hover {
-  border-color: #00ccff;
-  color: #00ccff;
-}
+.btn-outline:hover { border-color: #00ccff; color: #00ccff; }
 
-/* Filled button — Visit / Live Demo */
 .btn-filled {
   display: inline-flex;
   align-items: center;
@@ -310,32 +272,22 @@
   transition: box-shadow 0.3s, opacity 0.3s;
 }
 
-.btn-filled:hover {
-  box-shadow: 0 0 20px rgba(0, 204, 255, 0.55);
-  opacity: 0.9;
-}
+.btn-filled:hover { box-shadow: 0 0 20px rgba(0, 204, 255, 0.55); opacity: 0.9; }
 
-/* Arrow shift on hover */
 .btn-arrow {
   font-size: 0.7rem;
   transition: transform 0.22s ease;
 }
 
 .btn-outline:hover .btn-arrow,
-.btn-filled:hover  .btn-arrow {
-  transform: translateX(3px);
-}
+.btn-filled:hover  .btn-arrow { transform: translateX(3px); }
 
-/* ── MORE WORK TOGGLE BLOCK ─────────────────────────────────── */
-/* Spec: mt-16 max-w-4xl, left-aligned */
+/* ── MORE WORK TOGGLE ───────────────────────────────────────── */
 .more-work-wrapper {
   margin-top: 4rem;
   max-width: 56rem;
 }
 
-/* Header row — spec: border-t border-border pt-10
-                      flex-col (mobile) sm:flex-row sm:items-center
-                      sm:justify-between gap-4                   */
 .more-work-header {
   display: flex;
   flex-direction: column;
@@ -352,12 +304,8 @@
   }
 }
 
-.more-work-left {
-  display: flex;
-  flex-direction: column;
-}
+.more-work-left { display: flex; flex-direction: column; }
 
-/* Eyebrow — spec: text-[10px] tracking-[0.4em] cyan uppercase mb-2 */
 .more-work-eyebrow {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.625rem;
@@ -368,7 +316,6 @@
   margin: 0 0 0.5rem 0;
 }
 
-/* Title — spec: font-display text-xl md:text-2xl font-bold leading-snug */
 .more-work-title {
   font-family: 'Fraunces', Georgia, serif;
   font-size: 1.25rem;
@@ -382,7 +329,6 @@
   .more-work-title { font-size: 1.5rem; }
 }
 
-/* Toggle button — same pattern as Origin Story */
 .more-toggle-btn {
   display: inline-flex;
   align-items: center;
@@ -404,19 +350,11 @@
 }
 
 .more-toggle-btn:hover,
-.more-toggle-btn--open {
-  background: #00ccff;
-  color: #000;
-  border-color: #00ccff;
-}
+.more-toggle-btn--open { background: #00ccff; color: #000; border-color: #00ccff; }
 
-.toggle-icon {
-  font-size: 1rem;
-  line-height: 1;
-  font-weight: 400;
-}
+.toggle-icon { font-size: 1rem; line-height: 1; font-weight: 400; }
 
-/* ── COLLAPSIBLE BODY — grid-rows trick ─────────────────────── */
+/* ── COLLAPSIBLE BODY ───────────────────────────────────────── */
 .more-work-body {
   display: grid;
   grid-template-rows: 0fr;
@@ -434,13 +372,9 @@
   margin-top: 3rem;
 }
 
-.more-work-inner {
-  overflow: hidden;
-}
+.more-work-inner { overflow: hidden; }
 
 /* ── REST GRID ──────────────────────────────────────────────── */
-/* Spec: grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border
-         gap-px + bg-border draws 1px hairlines between cards   */
 .rest-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -456,49 +390,208 @@
   .rest-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* ── REST CARD ──────────────────────────────────────────────── */
-.rest-card {
-  /* Spec: p-7 (28px) */
-  background: #080808;     /* sits on top of bg-border grid */
-}
+.rest-card { background: #080808; }
 
 .rest-card-body {
-  padding: 1.75rem;        /* p-7 */
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
-  height: 100%;            /* fills card so mt-auto on buttons works */
+  height: 100%;
   box-sizing: border-box;
 }
 
-/* Rest H3 — spec: font-display font-bold leading-none text-2xl md:text-3xl */
 .rest-h3 {
   font-family: 'Fraunces', Georgia, serif;
   font-weight: 700;
-  font-size: 1.5rem;       /* text-2xl mobile */
+  font-size: 1.5rem;
   line-height: 1.1;
   color: #ffffff;
   margin: 0;
 }
 
 @media (min-width: 768px) {
-  .rest-h3 { font-size: 1.875rem; }  /* text-3xl */
+  .rest-h3 { font-size: 1.875rem; }
 }
 
-/* Rest description — spec: text-muted leading-relaxed mb-6 text-sm */
 .rest-description {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.875rem;
   line-height: 1.625;
   color: rgba(255, 255, 255, 0.50);
   margin: 0.75rem 0 1.5rem 0;
-  flex-grow: 1;            /* pushes tags + buttons down */
+  flex-grow: 1;
 }
 
-/* ── MOBILE ─────────────────────────────────────────────────── */
+/* ── MOBILE — PROJECTS ──────────────────────────────────────── */
 @media (max-width: 767px) {
-  .projects-eyebrow { margin-bottom: 2.5rem; }
-
-  .featured-h3 { font-size: 2.5rem; }
-
+  .projects-eyebrow  { margin-bottom: 2.5rem; }
+  .featured-h3       { font-size: 2.5rem; }
   .more-work-wrapper { max-width: 100%; }
+}
+
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  CERTIFICATION SECTION                                       ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+.cert-section {
+  position: relative;
+  background: #080808;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 5rem 0;
+}
+
+@media (min-width: 768px) {
+  .cert-section { padding: 7rem 0; }
+}
+
+.cert-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .cert-inner { padding: 0 2.5rem; }
+}
+
+/* Card */
+.cert-card {
+  background: #111114;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  overflow: hidden;
+  transition: border-color 500ms ease;
+}
+
+.cert-card:hover { border-color: rgba(0, 204, 255, 0.40); }
+
+/* Grid — 1 col mobile | 1fr 1.2fr desktop */
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .cert-grid { grid-template-columns: 1fr 1.2fr; }
+}
+
+/* Left — text panel */
+.cert-text-panel {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .cert-text-panel { padding: 2.5rem; }
+}
+
+.cert-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cert-stars {
+  font-size: 0.875rem;
+  color: #00ccff;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.cert-eyebrow-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.50);
+}
+
+.cert-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.98);
+  margin: 0 0 0.75rem 0;
+}
+
+@media (min-width: 768px) {
+  .cert-title { font-size: 1.875rem; }
+}
+
+.cert-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.cert-verified {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #00ccff;
+  margin: 0 0 2rem 0;
+}
+
+.cert-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba(0, 204, 255, 0.50);
+  color: #00ccff;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.cert-btn:hover { background: #00ccff; color: #000; border-color: #00ccff; }
+
+.cert-btn-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.22s ease;
+}
+
+.cert-btn:hover .cert-btn-arrow { transform: translateX(3px); }
+
+/* Right — image panel */
+.cert-image-panel {
+  background: #080808;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+@media (min-width: 768px) {
+  .cert-image-panel {
+    padding: 2rem;
+    border-top: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.10);
+  }
+}
+
+.cert-image {
+  width: 100%;
+  height: auto;
+  max-width: 28rem;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
 }
