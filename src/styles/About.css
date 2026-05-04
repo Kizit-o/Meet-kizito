@@ -4,11 +4,11 @@
 
 /* ── SECTION ────────────────────────────────────────────────── */
 .about {
+  padding: 7rem 0;
   position: relative;
   background: #080808;
   border-top: 1px solid rgba(255, 255, 255, 0.10);
   padding: 7rem 0;
-  overflow: hidden;
 }
 
 @media (min-width: 768px) {
@@ -279,6 +279,7 @@
 
 /* ── MOBILE ─────────────────────────────────────────────────── */
 @media (max-width: 767px) {
+  .about { padding: 10rem 0; }
   .about-eyebrow  { margin-bottom: 2.5rem; }
   .about-heading  { font-size: 2.25rem; margin-bottom: 1.75rem; }
   .about-body     { max-width: 100%; }

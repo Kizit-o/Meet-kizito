@@ -124,7 +124,7 @@ function Hero() {
         data-aos-delay="1000"
         aria-hidden="true"
       >
-        <span className="scroll-label">SCROLL TO EXPLORE</span>
+        <span className="scroll-label">SEE WHAT'S INSIDE</span>
         <div className="scroll-line" />
         <FaChevronDown className="scroll-chevron" />
       </div>
