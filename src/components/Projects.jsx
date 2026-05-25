@@ -25,9 +25,9 @@ const featured = {
 
 const rest = [
   {
-    title:       "Portfolio Website",
+    title:       "Be@ts",
     index:       "/02",
-    description: "Personal portfolio with responsive animations and modern tooling.",
+    description: "A pixel-perfect, fully responsive web design showcase for a modern electronics storefront.",
     image:       Projimg1,
     tags:        ["React", "JavaScript", "Vite", "CSS3"],
     github:      "https://github.com/Chisomkizito/portfolio",
@@ -51,6 +51,15 @@ const rest = [
     github:      "https://github.com/Kizit-o/KZT-NFTs",
     live:        "#",
   },
+  {
+  title:       "VEX Studio",
+  index:       "/05",
+  description: "Venture studio website — hero section and design system currently in development.",
+  image:       null,
+  tags:        ["React", "Tailwind", "Vite"],
+  github:      null,
+  live:        "#",
+},
 ];
 
 /* ── COMPONENT ───────────────────────────────────────────────── */
